@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-purple-700 to-indigo-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <Calendar className="text-white w-8 h-8" />
@@ -45,6 +45,13 @@ const Navbar = () => {
                     Admin Panel
                   </Link>
                 )}
+
+                {user?.role === 'organizer' && (
+                  <Link to="/organizer" className="bg-indigo-400 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-indigo-300 transition">
+                    Organizer Panel
+                  </Link>
+                )}
+
                 <div className="flex items-center space-x-3">
                   <Link to="/profile" className="text-white hover:text-purple-200 transition flex items-center gap-1">
                     <User className="w-4 h-4" />
@@ -90,6 +97,10 @@ const Navbar = () => {
                 <Link to="/profile" onClick={() => setIsOpen(false)} className="block text-white hover:text-purple-200 py-2">Profile</Link>
                 {isAdmin && (
                   <Link to="/admin" onClick={() => setIsOpen(false)} className="block text-yellow-400 py-2">Admin Panel</Link>
+                )}
+
+                {user?.role === 'organizer' && (
+                  <Link to="/organizer" onClick={() => setIsOpen(false)} className="block text-indigo-400 py-2">Organizer Panel</Link>
                 )}
                 <button onClick={handleLogout} className="block text-red-400 py-2">Logout</button>
               </>

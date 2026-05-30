@@ -21,22 +21,36 @@ import CreateEvent from './pages/admin/CreateEvent';
 import ManageEvents from './pages/admin/ManageEvents';
 import ManageBookings from './pages/admin/ManageBookings';
 
-// Protected Route
+// Organizer Pages
+import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
+import MyEvents from './pages/organizer/MyEvents';
+import OrganizerCreateEvent from './pages/organizer/CreateEvent';
+
+// Auth & Route Protection
 import { useAuth } from './context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
-// Protected Route Component
+// Protected Route - Login zaroori hai
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
   if (loading) return null;
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
-// Admin Route Component
+// Admin Route - Sirf Admin
 const AdminRoute = ({ children }) => {
   const { isAdmin, loading } = useAuth();
   if (loading) return null;
   return isAdmin ? children : <Navigate to="/" />;
+};
+
+// Organizer Route - Sirf Organizer
+const OrganizerRoute = ({ children }) => {
+  const { user, loading } = useAuth();
+  if (loading) return null;
+  return user?.role === 'organizer' || user?.role === 'admin'
+    ? children
+    : <Navigate to="/" />;
 };
 
 function App() {
@@ -57,41 +71,38 @@ function App() {
 
               {/* Protected User Routes */}
               <Route path="/my-bookings" element={
-                <ProtectedRoute>
-                  <MyBookings />
-                </ProtectedRoute>
+                <ProtectedRoute><MyBookings /></ProtectedRoute>
               } />
               <Route path="/profile" element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
+                <ProtectedRoute><Profile /></ProtectedRoute>
               } />
               <Route path="/booking-confirm" element={
-                <ProtectedRoute>
-                  <BookingConfirm />
-                </ProtectedRoute>
+                <ProtectedRoute><BookingConfirm /></ProtectedRoute>
               } />
 
               {/* Admin Routes */}
               <Route path="/admin" element={
-                <AdminRoute>
-                  <AdminDashboard />
-                </AdminRoute>
+                <AdminRoute><AdminDashboard /></AdminRoute>
               } />
               <Route path="/admin/create-event" element={
-                <AdminRoute>
-                  <CreateEvent />
-                </AdminRoute>
+                <AdminRoute><CreateEvent /></AdminRoute>
               } />
               <Route path="/admin/manage-events" element={
-                <AdminRoute>
-                  <ManageEvents />
-                </AdminRoute>
+                <AdminRoute><ManageEvents /></AdminRoute>
               } />
               <Route path="/admin/manage-bookings" element={
-                <AdminRoute>
-                  <ManageBookings />
-                </AdminRoute>
+                <AdminRoute><ManageBookings /></AdminRoute>
+              } />
+
+              {/* Organizer Routes */}
+              <Route path="/organizer" element={
+                <OrganizerRoute><OrganizerDashboard /></OrganizerRoute>
+              } />
+              <Route path="/organizer/my-events" element={
+                <OrganizerRoute><MyEvents /></OrganizerRoute>
+              } />
+              <Route path="/organizer/create-event" element={
+                <OrganizerRoute><OrganizerCreateEvent /></OrganizerRoute>
               } />
 
             </Routes>
