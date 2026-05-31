@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, MapPin, Tag, Users } from 'lucide-react';
+import { Calendar, MapPin, Users } from 'lucide-react';
 
 const EventCard = ({ event }) => {
   return (
@@ -25,7 +25,7 @@ const EventCard = ({ event }) => {
 
       {/* Event Info */}
       <div className="p-4">
-        <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-1">
+        <h3 className="text-lg font-bold text-gray-400 mb-2 line-clamp-1">
           {event.title}
         </h3>
 

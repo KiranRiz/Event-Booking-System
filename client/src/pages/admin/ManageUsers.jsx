@@ -75,10 +75,10 @@ const ManageUsers = () => {
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold">Manage Users</h1>
           <p className="text-orange-200 mt-1">{users.length} total users</p>
@@ -94,8 +94,8 @@ const ManageUsers = () => {
               <User className="w-6 h-6 text-green-600" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Normal Users</p>
-              <p className="text-2xl font-bold text-gray-800">{userCount}</p>
+              <p className="text-theme-text-muted text-sm">Normal Users</p>
+              <p className="text-2xl font-bold text-white">{userCount}</p>
             </div>
           </div>
           <div className="theme-card rounded-2xl shadow-sm p-4 flex items-center gap-4">
@@ -103,8 +103,8 @@ const ManageUsers = () => {
               <Users className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Organizers</p>
-              <p className="text-2xl font-bold text-gray-800">{organizerCount}</p>
+              <p className="text-theme-text-muted text-sm">Organizers</p>
+              <p className="text-2xl font-bold text-white">{organizerCount}</p>
             </div>
           </div>
           <div className="theme-card rounded-2xl shadow-sm p-4 flex items-center gap-4">
@@ -112,8 +112,8 @@ const ManageUsers = () => {
               <Shield className="w-6 h-6 text-red-600" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Admins</p>
-              <p className="text-2xl font-bold text-gray-800">{adminCount}</p>
+              <p className="text-theme-text-muted text-sm">Admins</p>
+              <p className="text-2xl font-bold text-white">{adminCount}</p>
             </div>
           </div>
         </div>
@@ -133,10 +133,10 @@ const ManageUsers = () => {
         </div>
 
         {/* Users Table */}
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+        <div className="bg-gray-900 rounded-2xl shadow-sm overflow-hidden">
 
           {/* Table Header */}
-          <div className="grid grid-cols-5 gap-4 p-4 bg-gray-50 border-b border-gray-100 text-sm font-semibold text-gray-500">
+          <div className="grid grid-cols-5 gap-4 p-4 bg-surface-soft border-b border-surface text-sm font-semibold text-theme-text-muted">
             <div className="col-span-2">User</div>
             <div>Phone</div>
             <div>Role</div>
@@ -157,14 +157,14 @@ const ManageUsers = () => {
                       </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-800 text-sm">{user.name}</p>
-                      <p className="text-gray-400 text-xs">{user.email}</p>
+                      <p className="font-semibold text-white text-sm">{user.name}</p>
+                      <p className="text-theme-text-muted text-xs">{user.email}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Phone */}
-                <div className="text-gray-600 text-sm">
+                <div className="text-theme-text-muted text-sm">
                   {user.phone}
                 </div>
 

@@ -69,10 +69,10 @@ const MyBookings = () => {
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-12 px-4">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-2">My Bookings</h1>
           <p className="text-orange-200">Manage all your event bookings</p>
@@ -83,10 +83,10 @@ const MyBookings = () => {
 
         {/* Empty State */}
         {bookings.length === 0 ? (
-          <div className="text-center py-20">
+          <div className="text-center py-20 theme-card rounded-2xl shadow-sm p-10">
             <div className="text-8xl mb-4">🎟️</div>
-            <h2 className="text-2xl font-bold text-gray-700 mb-2">No Bookings Yet</h2>
-            <p className="text-gray-400 mb-6">You haven't booked any events yet</p>
+            <h2 className="text-2xl font-bold text-white mb-2">No Bookings Yet</h2>
+            <p className="text-theme-text-muted mb-6">You haven't booked any events yet</p>
             <Link to="/events">
               <Button variant="primary" size="lg">
                 Browse Events
@@ -164,7 +164,7 @@ const MyBookings = () => {
                             </span>
                           </div>
 
-                          <h3 className="text-xl font-bold text-gray-800 mb-3">
+                          <h3 className="text-xl font-bold text-white mb-3">
                             {booking.event?.title}
                           </h3>
 

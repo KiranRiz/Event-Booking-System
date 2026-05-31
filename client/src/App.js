@@ -15,6 +15,7 @@ import MyBookings from './pages/MyBookings';
 import Profile from './pages/Profile';
 import BookingConfirm from './pages/BookingConfirm';
 
+
 // Admin Pages
 import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateEvent from './pages/admin/CreateEvent';
@@ -26,6 +27,11 @@ import ManageUsers from './pages/admin/ManageUsers';
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
 import MyEvents from './pages/organizer/MyEvents';
 import OrganizerCreateEvent from './pages/organizer/CreateEvent';
+import OrganizerEditEvent from './pages/organizer/EditEvent';
+import NotFound from './pages/NotFound';
+
+// Admin Pages
+import AdminEditEvent from './pages/admin/EditEvent';
 
 // Auth & Route Protection
 import { useAuth } from './context/AuthContext';
@@ -88,6 +94,9 @@ function App() {
               <Route path="/admin/create-event" element={
                 <AdminRoute><CreateEvent /></AdminRoute>
               } />
+              <Route path="/admin/edit-event/:id" element={
+                <AdminRoute><AdminEditEvent /></AdminRoute>
+              } />
               <Route path="/admin/manage-events" element={
                 <AdminRoute><ManageEvents /></AdminRoute>
               } />
@@ -109,6 +118,10 @@ function App() {
               <Route path="/organizer/create-event" element={
                 <OrganizerRoute><OrganizerCreateEvent /></OrganizerRoute>
               } />
+              <Route path="/organizer/edit-event/:id" element={
+                <OrganizerRoute><OrganizerEditEvent /></OrganizerRoute>
+              } />
+              <Route path="*" element={<NotFound />} />
 
             </Routes>
           </main>

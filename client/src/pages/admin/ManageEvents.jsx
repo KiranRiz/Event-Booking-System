@@ -51,14 +51,14 @@ const ManageEvents = () => {
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
 
       {/* Header */}
-        <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold">Manage Events</h1>
-              <p className="text-orange-200 mt-1">{events.length} total events</p>
+            <p className="text-orange-200 mt-1">{events.length} total events</p>
           </div>
           <Link to="/admin/create-event">
             <Button variant="outline" size="md">
@@ -74,13 +74,13 @@ const ManageEvents = () => {
         {/* Search Bar */}
           <div className="theme-card rounded-2xl shadow-sm p-4 mb-6">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-orange-400" />
             <input
               type="text"
               placeholder="Search by title, category, city..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-orange-400 transition"
+                className="w-full pl-10 pr-4 py-3 border border-orange-500/20 rounded-xl outline-none focus:border-orange-400 transition bg-slate-900 text-white"
             />
           </div>
         </div>
@@ -96,10 +96,10 @@ const ManageEvents = () => {
             </Link>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div className="bg-gray-900 rounded-2xl shadow-sm overflow-hidden">
 
             {/* Table Header */}
-              <div className="grid grid-cols-6 gap-4 p-4 bg-surface-soft border-b border-surface text-sm font-semibold text-gray-400">
+              <div className="grid grid-cols-6 gap-4 p-4 bg-surface-soft border-b border-surface text-sm font-semibold text-theme-text-muted">
               <div className="col-span-2">Event</div>
               <div>Date</div>
               <div>Price</div>
@@ -110,7 +110,7 @@ const ManageEvents = () => {
             {/* Table Rows */}
             <div className="divide-y divide-gray-50">
               {filteredEvents.map((event) => (
-                <div key={event._id} className="grid grid-cols-6 gap-4 p-4 items-center hover:bg-gray-50 transition">
+                <div key={event._id} className="grid grid-cols-6 gap-4 p-4 items-center hover:bg-surface-soft transition">
 
                   {/* Event Info */}
                   <div className="col-span-2 flex items-center gap-3">
@@ -120,11 +120,11 @@ const ManageEvents = () => {
                       className="w-14 h-14 rounded-xl object-cover flex-shrink-0"
                     />
                     <div>
-                      <p className="font-semibold text-gray-800 text-sm line-clamp-1">
+                      <p className="font-semibold text-white text-sm line-clamp-1">
                         {event.title}
                       </p>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs mt-1">
-                        <MapPin className="w-3 h-3" />
+                      <div className="flex items-center gap-1 text-theme-text-muted text-xs mt-1">
+                        <MapPin className="w-3 h-3 text-orange-400" />
                         {event.city}
                       </div>
                         <span className="bg-surface-soft text-accent text-xs px-2 py-0.5 rounded-full">
@@ -134,7 +134,7 @@ const ManageEvents = () => {
                   </div>
 
                   {/* Date */}
-                  <div className="flex items-center gap-1 text-gray-600 text-sm">
+                  <div className="flex items-center gap-1 text-theme-text-muted text-sm">
                       <Calendar className="w-4 h-4 text-accent" />
                     <span>
                       {new Date(event.date).toLocaleDateString('en-US', {
@@ -146,9 +146,9 @@ const ManageEvents = () => {
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-center gap-1 text-gray-600 text-sm">
+                  <div className="flex items-center gap-1 text-theme-text-muted text-sm">
                     <DollarSign className="w-4 h-4 text-green-400" />
-                    <span>{event.price}</span>
+                    <span className="text-white">{event.price}</span>
                   </div>
 
                   {/* Seats */}
@@ -158,7 +158,7 @@ const ManageEvents = () => {
                     }`}>
                       {event.availableSeats}
                     </span>
-                    <span className="text-gray-400"> / {event.totalSeats}</span>
+                    <span className="text-theme-text-muted"> / {event.totalSeats}</span>
                   </div>
 
                   {/* Actions */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { CheckCircle, Calendar, MapPin, Ticket, Download, Home } from 'lucide-react';
+import { CheckCircle, Calendar, MapPin, Ticket } from 'lucide-react';
 import Button from '../components/ui/Button';
 
 const BookingConfirm = () => {

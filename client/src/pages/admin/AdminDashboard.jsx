@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Calendar, Users, Ticket, DollarSign,
-  Plus, Eye, Trash2, Edit
+  Plus, Eye, Trash2, Edit, LayoutDashboard
 } from 'lucide-react';
 import API from '../../utils/api';
 import Loader from '../../components/ui/Loader';
@@ -56,65 +56,77 @@ const AdminDashboard = () => {
       title: 'Total Events',
       value: stats.totalEvents,
       icon: <Calendar className="w-8 h-8" />,
-      color: 'bg-orange-500',
-      lightColor: 'bg-surface-soft text-accent'
+      lightColor: 'bg-orange-500/20 text-orange-500'
     },
     {
       title: 'Total Users',
       value: stats.totalUsers,
       icon: <Users className="w-8 h-8" />,
-      color: 'bg-blue-500',
-      lightColor: 'bg-blue-100 text-blue-600'
+      lightColor: 'bg-orange-500/20 text-orange-500'
     },
     {
       title: 'Total Bookings',
       value: stats.totalBookings,
       icon: <Ticket className="w-8 h-8" />,
-      color: 'bg-green-500',
-      lightColor: 'bg-green-100 text-green-600'
+      lightColor: 'bg-orange-500/20 text-orange-500'
     },
     {
       title: 'Total Revenue',
       value: `$${stats.totalRevenue}`,
       icon: <DollarSign className="w-8 h-8" />,
-      color: 'bg-yellow-500',
-      lightColor: 'bg-yellow-100 text-yellow-600'
+      lightColor: 'bg-orange-500/20 text-orange-500'
     },
   ];
 
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
 
-      {/* Header */}
-      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold">Admin Dashboard</h1>
-            <p className="text-orange-200 mt-1">Manage your events and bookings</p>
+      {/* Top Navigation Bar */}
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-6 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-4">
+            <h1 className="text-3xl font-bold text-white">Admin Dashboard</h1>
+            <p className="text-gray-400 mt-1">Manage your events and bookings</p>
           </div>
-          <Link
-            to="/admin/create-event"
-            className="flex items-center gap-2 bg-white text-accent px-4 py-2 rounded-full font-semibold hover:bg-surface-soft transition"
-          >
-            <Plus className="w-4 h-4" />
-            New Event
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/admin" className="flex items-center gap-2 bg-orange-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-orange-400 transition text-sm">
+              <LayoutDashboard className="w-4 h-4" />
+              Dashboard
+            </Link>
+            <Link to="/admin/create-event" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
+              <Plus className="w-4 h-4" />
+              Create Event
+            </Link>
+            <Link to="/admin/manage-events" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
+              <Calendar className="w-4 h-4" />
+              Manage Events
+            </Link>
+            <Link to="/admin/manage-bookings" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
+              <Ticket className="w-4 h-4" />
+              Manage Bookings
+            </Link>
+            <Link to="/admin/manage-users" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
+              <Users className="w-4 h-4" />
+              Manage Users
+            </Link>
+          </div>
         </div>
       </div>
 
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {statCards.map((card, index) => (
-            <div key={index} className="theme-card rounded-2xl shadow-sm p-6 flex items-center gap-4">
+            <div key={index} className="bg-gray-900 border border-orange-500/30 rounded-2xl p-6 flex items-center gap-4">
               <div className={`${card.lightColor} p-3 rounded-full`}>
                 {card.icon}
               </div>
               <div>
-                <p className="text-theme-text-muted text-sm">{card.title}</p>
+                <p className="text-gray-400 text-sm">{card.title}</p>
                 <p className="text-2xl font-bold text-white">{card.value}</p>
               </div>
             </div>
@@ -124,12 +136,12 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           {/* Recent Events */}
-          <div className="theme-card rounded-2xl shadow-sm p-6">
+          <div className="bg-gray-900 border border-orange-500/30 rounded-2xl p-6">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-white">Recent Events</h2>
               <Link
                 to="/admin/manage-events"
-                className="text-accent hover:text-accent-strong text-sm font-semibold"
+                className="text-orange-500 hover:text-orange-400 text-sm font-semibold"
               >
                 View All
               </Link>
@@ -139,7 +151,7 @@ const AdminDashboard = () => {
               <div className="text-center py-8">
                 <p className="text-gray-400">No events yet</p>
                 <Link to="/admin/create-event">
-                  <button className="mt-3 bg-orange-500 text-black px-4 py-2 rounded-full text-sm hover:bg-orange-600 transition">
+                  <button className="mt-3 bg-orange-500 text-black px-4 py-2 rounded-full text-sm hover:bg-orange-400 transition">
                     Create Event
                   </button>
                 </Link>
@@ -147,7 +159,7 @@ const AdminDashboard = () => {
             ) : (
               <div className="space-y-4">
                 {recentEvents.map((event) => (
-                  <div key={event._id} className="flex items-center justify-between p-3 bg-surface-soft rounded-xl">
+                  <div key={event._id} className="flex items-center justify-between p-3 bg-black border border-orange-500/20 rounded-xl">
                     <div className="flex items-center gap-3">
                       <img
                         src={event.image || 'https://via.placeholder.com/50?text=E'}
@@ -156,23 +168,23 @@ const AdminDashboard = () => {
                       />
                       <div>
                         <p className="font-semibold text-white text-sm">{event.title}</p>
-                          <p className="text-theme-text-muted text-xs">{event.category} • ${event.price}</p>
+                        <p className="text-gray-400 text-xs">{event.category} • ${event.price}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Link to={`/events/${event._id}`}>
-                        <button className="p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition">
+                        <button className="p-2 text-blue-400 hover:bg-blue-900/20 rounded-lg transition">
                           <Eye className="w-4 h-4" />
                         </button>
                       </Link>
                       <Link to={`/admin/edit-event/${event._id}`}>
-                        <button className="p-2 text-green-500 hover:bg-green-50 rounded-lg transition">
+                        <button className="p-2 text-green-400 hover:bg-green-900/20 rounded-lg transition">
                           <Edit className="w-4 h-4" />
                         </button>
                       </Link>
                       <button
                         onClick={() => handleDeleteEvent(event._id)}
-                        className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition"
+                        className="p-2 text-red-400 hover:bg-red-900/20 rounded-lg transition"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -184,12 +196,12 @@ const AdminDashboard = () => {
           </div>
 
           {/* Recent Bookings */}
-          <div className="theme-card rounded-2xl shadow-sm p-6">
+          <div className="bg-gray-900 border border-orange-500/30 rounded-2xl p-6">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-white">Recent Bookings</h2>
               <Link
                 to="/admin/manage-bookings"
-                className="text-accent hover:text-accent-strong text-sm font-semibold"
+                className="text-orange-500 hover:text-orange-400 text-sm font-semibold"
               >
                 View All
               </Link>
@@ -202,9 +214,9 @@ const AdminDashboard = () => {
             ) : (
               <div className="space-y-4">
                 {recentBookings.map((booking) => (
-                  <div key={booking._id} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
+                  <div key={booking._id} className="flex items-center justify-between p-3 bg-black border border-orange-500/20 rounded-xl">
                     <div>
-                      <p className="font-semibold text-gray-800 text-sm">
+                      <p className="font-semibold text-white text-sm">
                         {booking.user?.name}
                       </p>
                       <p className="text-gray-400 text-xs">
@@ -212,11 +224,11 @@ const AdminDashboard = () => {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-accent">${booking.totalPrice}</p>
+                      <p className="font-bold text-orange-500">${booking.totalPrice}</p>
                       <span className={`text-xs px-2 py-1 rounded-full ${
                         booking.status === 'confirmed'
-                          ? 'bg-green-100 text-green-600'
-                          : 'bg-red-100 text-red-600'
+                          ? 'bg-green-900/30 text-green-400'
+                          : 'bg-red-900/30 text-red-400'
                       }`}>
                         {booking.status}
                       </span>

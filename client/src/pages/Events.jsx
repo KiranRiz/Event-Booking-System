@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, Filter, X } from 'lucide-react';
 import EventCard from '../components/ui/EventCard';
@@ -22,11 +22,7 @@ const Events = () => {
     'All', 'Concerts', 'Sports', 'Conference', 'Wedding', 'Festival', 'Theatre'
   ];
 
-  useEffect(() => {
-    fetchEvents();
-  }, [filters]);
-
-  const fetchEvents = async () => {
+  const fetchEvents = useCallback(async () => {
     setLoading(true);
     try {
       const params = {};
@@ -44,7 +40,11 @@ const Events = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]);
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }));
@@ -62,32 +62,30 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-12 px-4">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">All Events</h1>
           <p className="text-orange-200">Discover amazing events near you</p>
 
           {/* Search Bar */}
-          <div className="flex items-center bg-white rounded-full overflow-hidden mt-6 max-w-2xl shadow-lg">
-            <Search className="w-5 h-5 text-gray-400 ml-4" />
+          <div className="flex items-center bg-slate-950 rounded-full shadow-2xl shadow-orange-500/10 overflow-hidden mt-6 max-w-2xl">
+            <Search className="w-5 h-5 text-orange-400 ml-4" />
             <input
               type="text"
               placeholder="Search events..."
               value={filters.search}
               onChange={(e) => handleFilterChange('search', e.target.value)}
-              className="flex-1 px-4 py-3 text-gray-800 outline-none"
+              className="flex-1 px-4 py-4 text-white bg-transparent outline-none text-lg"
             />
-            {filters.search && (
-              <button
-                onClick={() => handleFilterChange('search', '')}
-                className="mr-4 text-gray-400 hover:text-gray-600"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
+            <button
+              onClick={fetchEvents}
+              className="bg-orange-500 text-black px-8 py-4 font-semibold hover:bg-orange-600 transition"
+            >
+              Search
+            </button>
           </div>
         </div>
       </div>
@@ -169,7 +167,7 @@ const Events = () => {
         </div>
 
         {/* Results Count */}
-        <p className="text-gray-500 mb-6">
+        <p className="text-theme-text-muted mb-6">
           {loading ? 'Loading...' : `${events.length} events found`}
         </p>
 

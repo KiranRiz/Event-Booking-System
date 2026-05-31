@@ -62,8 +62,16 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12">
-      <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen bg-black">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-8 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold">Login</h1>
+          <p className="text-orange-200 mt-1">Access your EventHub account</p>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center px-4 py-12">
+        <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
 
         {/* Logo */}
         <div className="text-center mb-8">
@@ -92,10 +100,10 @@ const Login = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${
                   errors.email
                     ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-orange-400'
+                    : 'border-gray-700 focus:border-orange-400'
                 }`}
               />
             </div>
@@ -117,10 +125,10 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${
                   errors.password
                     ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-orange-400'
+                    : 'border-gray-700 focus:border-orange-400'
                 }`}
               />
               <button
@@ -158,6 +166,7 @@ const Login = () => {
 
       </div>
     </div>
+  </div>
   );
 };
 

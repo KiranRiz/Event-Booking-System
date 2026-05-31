@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, Users, Tag, Clock, ArrowLeft } from 'lucide-react';
+import { Calendar, MapPin, Users, ArrowLeft } from 'lucide-react';
 import { getEventById, createBooking } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import Loader from '../components/ui/Loader';
@@ -17,20 +17,19 @@ const EventDetail = () => {
   const [booking, setBooking] = useState(false);
 
   useEffect(() => {
+    const fetchEvent = async () => {
+      try {
+        const res = await getEventById(id);
+        setEvent(res.data.event);
+      } catch (error) {
+        toast.error('Event not found!');
+        navigate('/events');
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchEvent();
-  }, [id]);
-
-  const fetchEvent = async () => {
-    try {
-      const res = await getEventById(id);
-      setEvent(res.data.event);
-    } catch (error) {
-      toast.error('Event not found!');
-      navigate('/events');
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [id, navigate]);
 
   const handleBooking = async () => {
     if (!isAuthenticated) {
@@ -108,8 +107,8 @@ const EventDetail = () => {
                     <Calendar className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Date</p>
-                    <p className="text-gray-700 font-semibold">
+                    <p className="text-xs text-theme-text-muted">Date</p>
+                    <p className="text-white font-semibold">
                       {new Date(event.date).toLocaleDateString('en-US', {
                         weekday: 'long',
                         year: 'numeric',
@@ -125,8 +124,8 @@ const EventDetail = () => {
                     <Clock className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Time</p>
-                    <p className="text-gray-700 font-semibold">{event.time || '7:00 PM'}</p>
+                    <p className="text-xs text-theme-text-muted">Time</p>
+                    <p className="text-white font-semibold">{event.time || '7:00 PM'}</p>
                   </div>
                 </div>
 
@@ -135,8 +134,8 @@ const EventDetail = () => {
                     <MapPin className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Venue</p>
-                    <p className="text-gray-700 font-semibold">{event.venue}, {event.city}</p>
+                    <p className="text-xs text-theme-text-muted">Venue</p>
+                    <p className="text-white font-semibold">{event.venue}, {event.city}</p>
                   </div>
                 </div>
 
@@ -145,8 +144,8 @@ const EventDetail = () => {
                     <Users className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Available Seats</p>
-                    <p className="text-gray-700 font-semibold">{event.availableSeats} seats left</p>
+                    <p className="text-xs text-theme-text-muted">Available Seats</p>
+                    <p className="text-white font-semibold">{event.availableSeats} seats left</p>
                   </div>
                 </div>
 
@@ -155,8 +154,8 @@ const EventDetail = () => {
                     <Tag className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400">Price per Ticket</p>
-                    <p className="text-gray-700 font-semibold">${event.price}</p>
+                    <p className="text-xs text-theme-text-muted">Price per Ticket</p>
+                    <p className="text-white font-semibold">${event.price}</p>
                   </div>
                 </div>
 
@@ -171,14 +170,14 @@ const EventDetail = () => {
               <p className="text-theme-text-muted text-sm mb-6">Select number of tickets</p>
 
               {/* Price */}
-              <div className="theme-card-soft rounded-xl p-4 mb-6">
-                <p className="text-theme-text-muted text-sm">Price per ticket</p>
+              <div className="theme-card-soft rounded-xl p-4 mb-6 text-left">
+                <p className="text-white text-sm font-semibold mb-2">Price per ticket</p>
                 <p className="text-3xl font-bold text-accent">${event.price}</p>
               </div>
 
               {/* Ticket Selector */}
-              <div className="mb-6">
-                <label className="text-gray-600 text-sm font-semibold mb-2 block">
+              <div className="mb-6 text-left">
+                <label className="text-white text-sm font-semibold mb-2 block">
                   Number of Tickets
                 </label>
                 <div className="flex items-center gap-4">
@@ -188,7 +187,7 @@ const EventDetail = () => {
                   >
                     -
                   </button>
-                  <span className="text-2xl font-bold text-gray-800 w-8 text-center">
+                  <span className="text-2xl font-bold text-accent w-8 text-center">
                     {tickets}
                   </span>
                   <button
@@ -203,7 +202,7 @@ const EventDetail = () => {
               {/* Total Price */}
               <div className="border-t border-gray-100 pt-4 mb-6">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Total Amount</span>
+                  <span className="text-white">Total Amount</span>
                   <span className="text-2xl font-bold text-accent">
                     ${(event.price * tickets).toFixed(2)}
                   </span>

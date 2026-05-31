@@ -82,8 +82,16 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12">
-      <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen bg-black">
+      <div className="bg-gray-900 border-b border-orange-500/30 text-white py-8 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold">Create Account</h1>
+          <p className="text-orange-200 mt-1">Join EventHub today</p>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center px-4 py-12">
+        <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
 
         {/* Logo */}
         <div className="text-center mb-8">
@@ -112,7 +120,7 @@ const Register = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-gray-700 focus:border-orange-400'}`}
               />
             </div>
             {errors.name && (
@@ -133,7 +141,7 @@ const Register = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-gray-700 focus:border-orange-400'}`}
               />
             </div>
             {errors.email && (
@@ -154,7 +162,7 @@ const Register = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-gray-700 focus:border-orange-400'}`}
               />
             </div>
             {errors.phone && (
@@ -175,7 +183,7 @@ const Register = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${errors.password ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${errors.password ? 'border-red-400 focus:border-red-400' : 'border-gray-700 focus:border-orange-400'}`}
               />
               <button
                 type="button"
@@ -203,7 +211,7 @@ const Register = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${errors.confirmPassword ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition bg-slate-950 text-white ${errors.confirmPassword ? 'border-red-400 focus:border-red-400' : 'border-gray-700 focus:border-orange-400'}`}
               />
               <button
                 type="button"
@@ -240,6 +248,7 @@ const Register = () => {
 
       </div>
     </div>
+  </div>
   );
 };
 

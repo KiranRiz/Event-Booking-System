@@ -25,27 +25,12 @@ const Home = () => {
     }
   };
 
-  const categories = [
-    { name: 'Concerts', icon: '🎵', color: 'bg-pink-100 text-pink-600' },
-    { name: 'Sports', icon: '⚽', color: 'bg-green-100 text-green-600' },
-    { name: 'Conference', icon: '💼', color: 'bg-blue-100 text-blue-600' },
-    { name: 'Wedding', icon: '💍', color: 'bg-surface-soft text-accent' },
-    { name: 'Festival', icon: '🎉', color: 'bg-yellow-100 text-yellow-600' },
-    { name: 'Theatre', icon: '🎭', color: 'bg-red-100 text-red-600' },
-  ];
-
-  const stats = [
-    { number: '500+', label: 'Events', icon: <Calendar className="w-6 h-6" /> },
-    { number: '10K+', label: 'Happy Users', icon: <Users className="w-6 h-6" /> },
-    { number: '50+', label: 'Cities', icon: <MapPin className="w-6 h-6" /> },
-    { number: '4.9', label: 'Rating', icon: <Star className="w-6 h-6" /> },
-  ];
-
+  
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white py-24 px-4">
+      <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white min-h-screen flex items-center py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Discover & Book
@@ -75,40 +60,47 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-brand-900 py-12 shadow-sm border border-orange-500/10">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center bg-slate-950/80 rounded-3xl p-6 border border-orange-500/10">
-                <div className="flex justify-center text-orange-400 mb-2">
-                  {stat.icon}
-                </div>
-                <p className="text-3xl font-extrabold text-white">{stat.number}</p>
-                <p className="text-orange-200 text-sm">{stat.label}</p>
+      {/* Features Section */}
+      <section className="bg-slate-950 py-16 px-4 border-t border-orange-500/10">
+        <div className="max-w-5xl mx-auto space-y-10">
+          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+                <Calendar className="w-5 h-5" />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-white">Easy Booking</h3>
+            </div>
+            <p className="text-theme-text-muted">Find and book tickets in seconds with a clean and fast experience.</p>
           </div>
-        </div>
-      </section>
 
-      {/* Categories Section */}
-      <section className="py-16 px-4 bg-slate-950">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-10">
-            Browse by Category
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {categories.map((cat, index) => (
-              <Link
-                key={index}
-                to={`/events?category=${cat.name}`}
-                className={`${cat.color} rounded-2xl p-4 text-center hover:shadow-md transition duration-300 cursor-pointer`}
-              >
-                <div className="text-4xl mb-2">{cat.icon}</div>
-                <p className="font-semibold text-sm">{cat.name}</p>
-              </Link>
-            ))}
+          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">Top Venues</h3>
+            </div>
+            <p className="text-theme-text-muted">Discover events from the best venues across your city and beyond.</p>
+          </div>
+
+          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+                <Users className="w-5 h-5" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">Community Trusted</h3>
+            </div>
+            <p className="text-theme-text-muted">Book with confidence thanks to reviews, ratings, and trusted organizers.</p>
+          </div>
+
+          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+            <div className="flex items-center gap-4 mb-3">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+                <Star className="w-5 h-5" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">Premium Support</h3>
+            </div>
+            <p className="text-theme-text-muted">Get help when you need it with 24/7 support and easy order management.</p>
           </div>
         </div>
       </section>
@@ -117,7 +109,7 @@ const Home = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-3xl font-bold text-white">
               Featured Events
             </h2>
             <Link

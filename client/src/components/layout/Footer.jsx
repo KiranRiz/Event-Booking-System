@@ -20,13 +20,13 @@ const Footer = () => {
                         </p>
                         {/* Social Media */}
                         <div className="flex space-x-4 mt-4">
-                            <a href="#" className="text-orange-300 hover:text-white transition text-sm font-semibold">
+                            <a href="https://facebook.com" className="text-orange-300 hover:text-white transition text-sm font-semibold" target="_blank" rel="noreferrer">
                                 Facebook
                             </a>
-                                <a href="#" className="text-orange-300 hover:text-white transition text-sm font-semibold">
+                                <a href="https://twitter.com" className="text-orange-300 hover:text-white transition text-sm font-semibold" target="_blank" rel="noreferrer">
                                 Twitter
                             </a>
-                                <a href="#" className="text-orange-300 hover:text-white transition text-sm font-semibold">
+                                <a href="https://instagram.com" className="text-orange-300 hover:text-white transition text-sm font-semibold" target="_blank" rel="noreferrer">
                                 Instagram
                             </a>
                         </div>
@@ -86,10 +86,10 @@ const Footer = () => {
                         © 2024 EventHub. All rights reserved.
                     </p>
                     <div className="flex space-x-4 mt-2 md:mt-0">
-                        <a href="#" className="text-orange-300 hover:text-white text-sm transition">
+                        <a href="/privacy-policy" className="text-orange-300 hover:text-white text-sm transition">
                             Privacy Policy
                         </a>
-                        <a href="#" className="text-orange-300 hover:text-white text-sm transition">
+                        <a href="/terms-of-service" className="text-orange-300 hover:text-white text-sm transition">
                             Terms of Service
                         </a>
                     </div>
