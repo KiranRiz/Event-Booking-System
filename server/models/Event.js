@@ -67,12 +67,11 @@ const eventSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// availableSeats automatically set karo
-eventSchema.pre('save', function(next) {
+// Set availableSeats equal to totalSeats when new event is created
+eventSchema.pre('save', function() {
   if (this.isNew) {
     this.availableSeats = this.totalSeats;
   }
-  next();
 });
 
 module.exports = mongoose.model('Event', eventSchema);

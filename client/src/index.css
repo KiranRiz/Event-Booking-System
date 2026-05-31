@@ -1,3 +1,133 @@
+:root {
+  color-scheme: dark;
+  --bg: #070707;
+  --surface: #111111;
+  --surface-soft: #1d1d1d;
+  --text: #f5f1e8;
+  --muted: #b8a786;
+  --accent: #ff8a00;
+  --accent-strong: #ff6500;
+  --border: #2f2f2f;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top right, rgba(255,138,0,0.12), transparent 20%), #070707;
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body, input, textarea, select, button {
+  color: var(--text);
+}
+
+input, textarea, select {
+  background: #0f0f0f;
+  border-color: #2a2a2a;
+}
+
+::selection {
+  background: rgba(255,138,0,0.35);
+  color: #111111;
+}
+
+.theme-card {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.theme-card-soft {
+  background: var(--surface-soft);
+}
+
+.theme-accent {
+  background: var(--accent);
+  color: #111111;
+}
+
+.theme-accent-hover:hover {
+  background: var(--accent-strong);
+}
+
+.theme-border {
+  border-color: rgba(255,138,0,0.18);
+}
+
+.theme-text-muted {
+  color: var(--muted);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #111111;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-strong);
+}
+
+.btn-secondary {
+  background: #1f1f1f;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: #2f2f2f;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: rgba(255,138,0,0.08);
+}
+
+.btn-danger {
+  background: #d14343;
+  color: #ffffff;
+}
+
+.btn-danger:hover,
+.btn-danger:focus-visible {
+  background: #be2d2d;
+}
+
+/* Accent text/background utilities for theme consistency */
+.text-accent {
+  color: var(--accent);
+}
+.text-accent-strong {
+  color: var(--accent-strong);
+}
+.text-accent-soft {
+  color: rgba(255,138,0,0.6);
+}
+.bg-accent {
+  background: var(--accent);
+  color: #111111;
+}
+.bg-accent-strong {
+  background: var(--accent-strong);
+  color: #111111;
+}
+.bg-surface {
+  background: var(--surface);
+}
+.bg-surface-soft {
+  background: var(--surface-soft);
+}

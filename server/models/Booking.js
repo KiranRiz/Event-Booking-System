@@ -34,11 +34,10 @@ const bookingSchema = new mongoose.Schema({
 });
 
 // Unique Booking ID automatically generate karo
-bookingSchema.pre('save', function(next) {
+bookingSchema.pre('save', function() {
   if (this.isNew) {
     this.bookingId = 'BK' + Date.now() + Math.floor(Math.random() * 1000);
   }
-  next();
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

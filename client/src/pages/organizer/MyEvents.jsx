@@ -54,11 +54,11 @@ const MyEvents = () => {
     <div className="min-h-screen bg-gray-50">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-700 to-purple-800 text-white py-8 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold">My Events</h1>
-            <p className="text-indigo-200 mt-1">{events.length} total events</p>
+            <p className="text-orange-200 mt-1">{events.length} total events</p>
           </div>
           <Link to="/organizer/create-event">
             <Button variant="outline" size="md">
@@ -72,7 +72,7 @@ const MyEvents = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
 
         {/* Search Bar */}
-        <div className="bg-white rounded-2xl shadow-sm p-4 mb-6">
+        <div className="theme-card rounded-2xl shadow-sm p-4 mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
@@ -80,7 +80,7 @@ const MyEvents = () => {
               placeholder="Search by title, category, city..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-indigo-400 transition"
+              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-orange-400 transition"
             />
           </div>
         </div>
@@ -127,7 +127,7 @@ const MyEvents = () => {
                         <MapPin className="w-3 h-3" />
                         {event.city}
                       </div>
-                      <span className="bg-indigo-100 text-indigo-600 text-xs px-2 py-0.5 rounded-full">
+                      <span className="bg-surface-soft text-accent text-xs px-2 py-0.5 rounded-full">
                         {event.category}
                       </span>
                     </div>
@@ -135,7 +135,7 @@ const MyEvents = () => {
 
                   {/* Date */}
                   <div className="flex items-center gap-1 text-gray-600 text-sm">
-                    <Calendar className="w-4 h-4 text-indigo-400" />
+                    <Calendar className="w-4 h-4 text-accent" />
                     <span>
                       {new Date(event.date).toLocaleDateString('en-US', {
                         month: 'short',

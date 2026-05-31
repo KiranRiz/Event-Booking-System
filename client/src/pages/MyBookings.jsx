@@ -72,10 +72,10 @@ const MyBookings = () => {
     <div className="min-h-screen bg-gray-50">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-12 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-2">My Bookings</h1>
-          <p className="text-purple-200">Manage all your event bookings</p>
+          <p className="text-orange-200">Manage all your event bookings</p>
         </div>
       </div>
 
@@ -97,33 +97,33 @@ const MyBookings = () => {
           <>
             {/* Stats Row */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-4">
-                <div className="bg-purple-100 p-3 rounded-full">
-                  <Ticket className="w-6 h-6 text-purple-600" />
+              <div className="theme-card rounded-2xl shadow-sm p-4 flex items-center gap-4">
+                <div className="bg-surface-soft p-3 rounded-full">
+                  <Ticket className="w-6 h-6 text-accent" />
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Total Bookings</p>
-                  <p className="text-2xl font-bold text-gray-800">{bookings.length}</p>
+                  <p className="text-2xl font-bold text-white">{bookings.length}</p>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-4">
+              <div className="theme-card rounded-2xl shadow-sm p-4 flex items-center gap-4">
                 <div className="bg-green-100 p-3 rounded-full">
                   <CheckCircle className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Confirmed</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                  <p className="text-2xl font-bold text-white">
                     {bookings.filter(b => b.status === 'confirmed').length}
                   </p>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-4">
+              <div className="theme-card rounded-2xl shadow-sm p-4 flex items-center gap-4">
                 <div className="bg-red-100 p-3 rounded-full">
                   <X className="w-6 h-6 text-red-500" />
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Cancelled</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                  <p className="text-2xl font-bold text-white">
                     {bookings.filter(b => b.status === 'cancelled').length}
                   </p>
                 </div>
@@ -135,7 +135,7 @@ const MyBookings = () => {
               {bookings.map((booking) => (
                 <div
                   key={booking._id}
-                  className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition"
+                  className="theme-card rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition"
                 >
                   <div className="flex flex-col md:flex-row">
 
@@ -170,7 +170,7 @@ const MyBookings = () => {
 
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 text-gray-500 text-sm">
-                              <Calendar className="w-4 h-4 text-purple-500" />
+                              <Calendar className="w-4 h-4 text-accent" />
                               <span>
                                 {new Date(booking.event?.date).toLocaleDateString('en-US', {
                                   weekday: 'long',
@@ -181,11 +181,11 @@ const MyBookings = () => {
                               </span>
                             </div>
                             <div className="flex items-center gap-2 text-gray-500 text-sm">
-                              <MapPin className="w-4 h-4 text-purple-500" />
+                              <MapPin className="w-4 h-4 text-accent" />
                               <span>{booking.event?.venue}, {booking.event?.city}</span>
                             </div>
                             <div className="flex items-center gap-2 text-gray-500 text-sm">
-                              <Ticket className="w-4 h-4 text-purple-500" />
+                              <Ticket className="w-4 h-4 text-accent" />
                               <span>{booking.numberOfTickets} ticket(s)</span>
                             </div>
                           </div>
@@ -195,7 +195,7 @@ const MyBookings = () => {
                         <div className="flex flex-col items-end gap-4">
                           <div className="text-right">
                             <p className="text-gray-400 text-sm">Total Paid</p>
-                            <p className="text-2xl font-bold text-purple-600">
+                            <p className="text-2xl font-bold text-accent">
                               ${booking.totalPrice}
                             </p>
                           </div>

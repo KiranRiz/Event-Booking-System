@@ -20,6 +20,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import CreateEvent from './pages/admin/CreateEvent';
 import ManageEvents from './pages/admin/ManageEvents';
 import ManageBookings from './pages/admin/ManageBookings';
+import ManageUsers from './pages/admin/ManageUsers';
 
 // Organizer Pages
 import OrganizerDashboard from './pages/organizer/OrganizerDashboard';
@@ -94,6 +95,10 @@ function App() {
                 <AdminRoute><ManageBookings /></AdminRoute>
               } />
 
+              <Route path="/admin/manage-users" element={
+                <AdminRoute><ManageUsers /></AdminRoute>
+              } />
+              
               {/* Organizer Routes */}
               <Route path="/organizer" element={
                 <OrganizerRoute><OrganizerDashboard /></OrganizerRoute>

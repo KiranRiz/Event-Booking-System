@@ -229,6 +229,38 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// @desc    Update user role
+// @route   PUT /api/admin/users/:id/role
+// @access  Admin
+const updateUserRole = async (req, res) => {
+  try {
+    const { role } = req.body;
+
+    // Check valid role
+    if (!['user', 'organizer', 'admin'].includes(role)) {
+      return res.status(400).json({ message: 'Invalid role' });
+    }
+
+    // Find user
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update role
+    user.role = role;
+    await user.save();
+
+    res.status(200).json({
+      message: 'User role updated successfully',
+      user
+    });
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getDashboardStats,
   getAllEvents,
@@ -238,5 +270,6 @@ module.exports = {
   getAllBookings,
   updateBookingStatus,
   getAllUsers,
-  deleteUser
+  deleteUser,
+  updateUserRole
 };

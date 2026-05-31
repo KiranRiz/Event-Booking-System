@@ -11,31 +11,13 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const storedUser = localStorage.getItem('user');
-  //   if (storedUser && token) {
-  //     setUser(JSON.parse(storedUser));
-  //   }
-  //   setLoading(false);
-  // }, []);
-
   useEffect(() => {
-  const storedUser = localStorage.getItem('user');
-  if (storedUser && token) {
-    setUser(JSON.parse(storedUser));
-  } else {
-    // Temporary admin user for testing
-    const tempAdmin = {
-      name: 'Admin User',
-      email: 'admin@test.com',
-      role: 'admin'
-    };
-    setUser(tempAdmin);
-    localStorage.setItem('user', JSON.stringify(tempAdmin));
-    localStorage.setItem('token', 'temp-token');
-  }
-  setLoading(false);
-}, []);
+    const storedUser = localStorage.getItem('user');
+    if (storedUser && token) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoading(false);
+  }, []);
 
   const login = (userData, authToken) => {
     setUser(userData);

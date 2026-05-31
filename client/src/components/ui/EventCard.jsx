@@ -4,7 +4,7 @@ import { Calendar, MapPin, Tag, Users } from 'lucide-react';
 
 const EventCard = ({ event }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+    <div className="bg-slate-900 rounded-2xl shadow-xl hover:shadow-orange-500/20 transition duration-300 overflow-hidden group border border-orange-500/10">
       
       {/* Event Image */}
       <div className="relative overflow-hidden h-48">
@@ -14,11 +14,11 @@ const EventCard = ({ event }) => {
           className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
         />
         {/* Category Badge */}
-        <span className="absolute top-3 left-3 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-semibold">
+        <span className="absolute top-3 left-3 bg-orange-500 text-black text-xs px-3 py-1 rounded-full font-semibold">
           {event.category}
         </span>
         {/* Price Badge */}
-        <span className="absolute top-3 right-3 bg-white text-purple-700 text-xs px-3 py-1 rounded-full font-bold shadow">
+        <span className="absolute top-3 right-3 bg-brand-900 text-orange-300 text-xs px-3 py-1 rounded-full font-bold shadow">
           ${event.price}
         </span>
       </div>
@@ -31,8 +31,8 @@ const EventCard = ({ event }) => {
 
         <div className="space-y-2 mb-4">
           {/* Date */}
-          <div className="flex items-center gap-2 text-gray-500 text-sm">
-            <Calendar className="w-4 h-4 text-purple-500" />
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Calendar className="w-4 h-4 text-orange-400" />
             <span>{new Date(event.date).toLocaleDateString('en-US', {
               weekday: 'short',
               year: 'numeric',
@@ -42,14 +42,14 @@ const EventCard = ({ event }) => {
           </div>
 
           {/* Location */}
-          <div className="flex items-center gap-2 text-gray-500 text-sm">
-            <MapPin className="w-4 h-4 text-purple-500" />
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <MapPin className="w-4 h-4 text-orange-400" />
             <span>{event.venue}, {event.city}</span>
           </div>
 
           {/* Available Seats */}
-          <div className="flex items-center gap-2 text-gray-500 text-sm">
-            <Users className="w-4 h-4 text-purple-500" />
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Users className="w-4 h-4 text-orange-400" />
             <span>{event.availableSeats} seats left</span>
           </div>
         </div>
@@ -57,7 +57,7 @@ const EventCard = ({ event }) => {
         {/* Button */}
         <Link
           to={`/events/${event._id}`}
-          className="block w-full text-center bg-purple-600 text-white py-2 rounded-full font-semibold hover:bg-purple-700 transition duration-300"
+          className="block w-full text-center bg-orange-500 text-black py-2 rounded-full font-semibold hover:bg-orange-600 transition duration-300"
         >
           View Details
         </Link>

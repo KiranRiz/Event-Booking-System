@@ -47,15 +47,15 @@ const OrganizerDashboard = () => {
     <div className="min-h-screen bg-gray-50">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-700 to-purple-800 text-white py-8 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold">Organizer Dashboard</h1>
-            <p className="text-indigo-200 mt-1">Manage your events</p>
+            <p className="text-orange-200 mt-1">Manage your events</p>
           </div>
           <Link
             to="/organizer/create-event"
-            className="flex items-center gap-2 bg-white text-indigo-700 px-4 py-2 rounded-full font-semibold hover:bg-indigo-50 transition"
+            className="flex items-center gap-2 bg-orange-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
           >
             <Plus className="w-4 h-4" />
             New Event
@@ -67,42 +67,42 @@ const OrganizerDashboard = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-2xl shadow-sm p-6 flex items-center gap-4">
-            <div className="bg-indigo-100 p-3 rounded-full">
-              <Calendar className="w-8 h-8 text-indigo-600" />
+          <div className="theme-card rounded-2xl shadow-sm p-6 flex items-center gap-4">
+            <div className="bg-surface-soft p-3 rounded-full">
+              <Calendar className="w-8 h-8 text-accent" />
             </div>
             <div>
               <p className="text-gray-400 text-sm">My Events</p>
-              <p className="text-2xl font-bold text-gray-800">{stats.totalEvents}</p>
+              <p className="text-2xl font-bold text-white">{stats.totalEvents}</p>
             </div>
           </div>
-          <div className="bg-white rounded-2xl shadow-sm p-6 flex items-center gap-4">
-            <div className="bg-purple-100 p-3 rounded-full">
-              <Ticket className="w-8 h-8 text-purple-600" />
+          <div className="theme-card rounded-2xl shadow-sm p-6 flex items-center gap-4">
+            <div className="bg-surface-soft p-3 rounded-full">
+              <Ticket className="w-8 h-8 text-accent" />
             </div>
             <div>
               <p className="text-gray-400 text-sm">Total Bookings</p>
-              <p className="text-2xl font-bold text-gray-800">{stats.totalBookings}</p>
+              <p className="text-2xl font-bold text-white">{stats.totalBookings}</p>
             </div>
           </div>
-          <div className="bg-white rounded-2xl shadow-sm p-6 flex items-center gap-4">
+          <div className="theme-card rounded-2xl shadow-sm p-6 flex items-center gap-4">
             <div className="bg-green-100 p-3 rounded-full">
               <DollarSign className="w-8 h-8 text-green-600" />
             </div>
             <div>
               <p className="text-gray-400 text-sm">Total Revenue</p>
-              <p className="text-2xl font-bold text-gray-800">${stats.totalRevenue}</p>
+              <p className="text-2xl font-bold text-white">${stats.totalRevenue}</p>
             </div>
           </div>
         </div>
 
         {/* My Events Table */}
-        <div className="bg-white rounded-2xl shadow-sm p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold text-gray-800">My Events</h2>
-            <Link
-              to="/organizer/my-events"
-              className="text-indigo-600 hover:text-indigo-700 text-sm font-semibold"
+<div className="theme-card rounded-2xl shadow-sm p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-white">My Events</h2>
+              <Link
+                to="/organizer/my-events"
+                className="text-accent hover:text-accent-strong text-sm font-semibold"
             >
               View All
             </Link>
@@ -113,7 +113,7 @@ const OrganizerDashboard = () => {
               <p className="text-6xl mb-4">🎭</p>
               <p className="text-gray-400 text-lg mb-4">No events created yet</p>
               <Link to="/organizer/create-event">
-                <button className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+                <button className="bg-orange-500 text-black px-6 py-2 rounded-full hover:bg-orange-600 transition">
                   Create Your First Event
                 </button>
               </Link>

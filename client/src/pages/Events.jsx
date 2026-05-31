@@ -62,13 +62,13 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-12 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">All Events</h1>
-          <p className="text-purple-200">Discover amazing events near you</p>
+          <p className="text-orange-200">Discover amazing events near you</p>
 
           {/* Search Bar */}
           <div className="flex items-center bg-white rounded-full overflow-hidden mt-6 max-w-2xl shadow-lg">
@@ -95,7 +95,7 @@ const Events = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
 
         {/* Filters Row */}
-        <div className="bg-white rounded-2xl shadow-sm p-4 mb-8">
+        <div className="theme-card rounded-2xl shadow-sm p-4 mb-8">
           <div className="flex flex-wrap gap-4 items-center">
 
             {/* Filter Icon */}
@@ -112,8 +112,8 @@ const Events = () => {
                   onClick={() => handleFilterChange('category', cat === 'All' ? '' : cat)}
                   className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
                     (cat === 'All' && !filters.category) || filters.category === cat
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-purple-100'
+                      ? 'bg-orange-500 text-black'
+                      : 'bg-gray-100 text-gray-600 hover:bg-surface-soft'
                   }`}
                 >
                   {cat}
@@ -127,7 +127,7 @@ const Events = () => {
               placeholder="City..."
               value={filters.city}
               onChange={(e) => handleFilterChange('city', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-purple-400"
+              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400"
             />
 
             {/* Price Filter */}
@@ -136,21 +136,21 @@ const Events = () => {
               placeholder="Min Price"
               value={filters.minPrice}
               onChange={(e) => handleFilterChange('minPrice', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-purple-400 w-28"
+              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400 w-28"
             />
             <input
               type="number"
               placeholder="Max Price"
               value={filters.maxPrice}
               onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-purple-400 w-28"
+              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400 w-28"
             />
 
             {/* Sort */}
             <select
               value={filters.sort}
               onChange={(e) => handleFilterChange('sort', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-purple-400"
+              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400"
             >
               <option value="date">Sort by Date</option>
               <option value="price">Sort by Price</option>
@@ -183,7 +183,7 @@ const Events = () => {
             <p className="text-gray-300 mt-2">Try changing your filters</p>
             <button
               onClick={clearFilters}
-              className="mt-4 bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition"
+              className="mt-4 bg-orange-500 text-black px-6 py-2 rounded-full hover:bg-orange-600 transition"
             >
               Clear Filters
             </button>

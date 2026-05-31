@@ -15,6 +15,18 @@ const createBooking = async (req, res) => {
       return res.status(400).json({ message: 'Event is not available' });
     }
 
+    // Prevent duplicate booking by the same user for the same event
+    const existingBooking = await Booking.findOne({
+      user: req.user.id,
+      event: eventId,
+      status: { $ne: 'cancelled' }
+    });
+    if (existingBooking) {
+      return res.status(400).json({
+        message: 'You have already booked this event'
+      });
+    }
+
     // Check if enough seats are available
     if (event.availableSeats < numberOfTickets) {
       return res.status(400).json({ 

@@ -14,10 +14,10 @@ const Button = ({
   const baseStyles = 'font-semibold rounded-full transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variants = {
-    primary: 'bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500',
-    secondary: 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
-    danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-400',
-    outline: 'border-2 border-purple-600 text-purple-600 hover:bg-purple-50 focus:ring-purple-500',
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    danger: 'btn-danger',
+    outline: 'btn-outline',
     success: 'bg-green-500 text-white hover:bg-green-600 focus:ring-green-400',
   };
 

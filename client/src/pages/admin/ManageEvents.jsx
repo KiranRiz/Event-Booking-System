@@ -54,11 +54,11 @@ const ManageEvents = () => {
     <div className="min-h-screen bg-gray-50">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-8 px-4">
+        <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold">Manage Events</h1>
-            <p className="text-purple-200 mt-1">{events.length} total events</p>
+              <p className="text-orange-200 mt-1">{events.length} total events</p>
           </div>
           <Link to="/admin/create-event">
             <Button variant="outline" size="md">
@@ -72,7 +72,7 @@ const ManageEvents = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
 
         {/* Search Bar */}
-        <div className="bg-white rounded-2xl shadow-sm p-4 mb-6">
+          <div className="theme-card rounded-2xl shadow-sm p-4 mb-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
@@ -80,17 +80,17 @@ const ManageEvents = () => {
               placeholder="Search by title, category, city..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-purple-400 transition"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-orange-400 transition"
             />
           </div>
         </div>
 
         {/* Events Table */}
         {filteredEvents.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-2xl shadow-sm">
+            <div className="text-center py-20 theme-card rounded-2xl shadow-sm">
             <p className="text-6xl mb-4">🎭</p>
             <h2 className="text-xl font-bold text-gray-700 mb-2">No Events Found</h2>
-            <p className="text-gray-400 mb-6">Create your first event!</p>
+              <p className="text-gray-300 mb-6">Create your first event!</p>
             <Link to="/admin/create-event">
               <Button variant="primary">Create Event</Button>
             </Link>
@@ -99,7 +99,7 @@ const ManageEvents = () => {
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
 
             {/* Table Header */}
-            <div className="grid grid-cols-6 gap-4 p-4 bg-gray-50 border-b border-gray-100 text-sm font-semibold text-gray-500">
+              <div className="grid grid-cols-6 gap-4 p-4 bg-surface-soft border-b border-surface text-sm font-semibold text-gray-400">
               <div className="col-span-2">Event</div>
               <div>Date</div>
               <div>Price</div>
@@ -127,7 +127,7 @@ const ManageEvents = () => {
                         <MapPin className="w-3 h-3" />
                         {event.city}
                       </div>
-                      <span className="bg-purple-100 text-purple-600 text-xs px-2 py-0.5 rounded-full">
+                        <span className="bg-surface-soft text-accent text-xs px-2 py-0.5 rounded-full">
                         {event.category}
                       </span>
                     </div>
@@ -135,7 +135,7 @@ const ManageEvents = () => {
 
                   {/* Date */}
                   <div className="flex items-center gap-1 text-gray-600 text-sm">
-                    <Calendar className="w-4 h-4 text-purple-400" />
+                      <Calendar className="w-4 h-4 text-accent" />
                     <span>
                       {new Date(event.date).toLocaleDateString('en-US', {
                         month: 'short',

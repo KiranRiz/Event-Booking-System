@@ -11,11 +11,11 @@ const BookingConfirm = () => {
   // Agar direct URL se aaye (koi booking nahi)
   if (!booking) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      <div className="min-h-screen flex items-center justify-center px-4">
         <div className="text-center">
           <p className="text-6xl mb-4">🎟️</p>
-          <h2 className="text-2xl font-bold text-gray-700 mb-2">No Booking Found</h2>
-          <p className="text-gray-400 mb-6">Please book an event first</p>
+          <h2 className="text-2xl font-bold text-white mb-2">No Booking Found</h2>
+          <p className="text-theme-text-muted mb-6">Please book an event first</p>
           <Link to="/events">
             <Button variant="primary" size="lg">Browse Events</Button>
           </Link>
@@ -25,8 +25,8 @@ const BookingConfirm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-lg p-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="theme-card rounded-3xl shadow-xl w-full max-w-lg p-8">
 
         {/* Success Icon */}
         <div className="text-center mb-8">
@@ -44,9 +44,9 @@ const BookingConfirm = () => {
         </div>
 
         {/* Booking ID */}
-        <div className="bg-purple-50 rounded-2xl p-4 mb-6 text-center">
-          <p className="text-gray-500 text-sm mb-1">Booking ID</p>
-          <p className="text-purple-600 font-bold text-xl tracking-wider">
+        <div className="theme-card-soft rounded-2xl p-4 mb-6 text-center">
+          <p className="text-theme-text-muted text-sm mb-1">Booking ID</p>
+          <p className="text-accent font-bold text-xl tracking-wider">
             #{booking.bookingId}
           </p>
         </div>
@@ -59,8 +59,8 @@ const BookingConfirm = () => {
 
           {/* Event Name */}
           <div className="flex items-center gap-3">
-            <div className="bg-purple-100 p-2 rounded-full">
-              <Calendar className="w-4 h-4 text-purple-600" />
+            <div className="bg-surface-soft p-2 rounded-full">
+              <Calendar className="w-4 h-4 text-accent" />
             </div>
             <div>
               <p className="text-xs text-gray-400">Event</p>
@@ -72,8 +72,8 @@ const BookingConfirm = () => {
 
           {/* Date */}
           <div className="flex items-center gap-3">
-            <div className="bg-purple-100 p-2 rounded-full">
-              <Calendar className="w-4 h-4 text-purple-600" />
+            <div className="bg-surface-soft p-2 rounded-full">
+              <Calendar className="w-4 h-4 text-accent" />
             </div>
             <div>
               <p className="text-xs text-gray-400">Date</p>
@@ -90,8 +90,8 @@ const BookingConfirm = () => {
 
           {/* Venue */}
           <div className="flex items-center gap-3">
-            <div className="bg-purple-100 p-2 rounded-full">
-              <MapPin className="w-4 h-4 text-purple-600" />
+            <div className="bg-surface-soft p-2 rounded-full">
+              <MapPin className="w-4 h-4 text-accent" />
             </div>
             <div>
               <p className="text-xs text-gray-400">Venue</p>
@@ -103,8 +103,8 @@ const BookingConfirm = () => {
 
           {/* Tickets */}
           <div className="flex items-center gap-3">
-            <div className="bg-purple-100 p-2 rounded-full">
-              <Ticket className="w-4 h-4 text-purple-600" />
+            <div className="bg-surface-soft p-2 rounded-full">
+              <Ticket className="w-4 h-4 text-accent" />
             </div>
             <div>
               <p className="text-xs text-gray-400">Tickets</p>
@@ -118,7 +118,7 @@ const BookingConfirm = () => {
           <div className="border-t border-gray-200 pt-4 mt-4">
             <div className="flex justify-between items-center">
               <span className="text-gray-600 font-semibold">Total Paid</span>
-              <span className="text-2xl font-bold text-purple-600">
+              <span className="text-2xl font-bold text-accent">
                 ${booking.totalPrice}
               </span>
             </div>

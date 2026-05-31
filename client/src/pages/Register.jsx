@@ -82,18 +82,18 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 flex items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
 
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-3">
-            <div className="bg-purple-600 p-3 rounded-2xl">
+            <div className="theme-accent p-3 rounded-2xl">
               <Calendar className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Create Account</h1>
-          <p className="text-gray-400 mt-2">Join EventHub today!</p>
+          <h1 className="text-3xl font-bold text-white">Create Account</h1>
+          <p className="text-theme-text-muted mt-2">Join EventHub today!</p>
         </div>
 
         {/* Form */}
@@ -112,11 +112,7 @@ const Register = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                  ${errors.name
-                    ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
               />
             </div>
             {errors.name && (
@@ -137,11 +133,7 @@ const Register = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                  ${errors.email
-                    ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
               />
             </div>
             {errors.email && (
@@ -162,11 +154,7 @@ const Register = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                  ${errors.phone
-                    ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
               />
             </div>
             {errors.phone && (
@@ -187,11 +175,7 @@ const Register = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition
-                  ${errors.password
-                    ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${errors.password ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
               />
               <button
                 type="button"
@@ -219,11 +203,7 @@ const Register = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition
-                  ${errors.confirmPassword
-                    ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${errors.confirmPassword ? 'border-red-400 focus:border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
               />
               <button
                 type="button"
@@ -251,9 +231,9 @@ const Register = () => {
         </form>
 
         {/* Login Link */}
-        <p className="text-center text-gray-500 mt-6">
+        <p className="text-center text-theme-text-muted mt-6">
           Already have an account?{' '}
-          <Link to="/login" className="text-purple-600 font-semibold hover:text-purple-700">
+          <Link to="/login" className="text-accent font-semibold hover:text-accent-strong">
             Login here
           </Link>
         </p>

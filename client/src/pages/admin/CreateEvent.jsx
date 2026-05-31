@@ -66,20 +66,20 @@ const CreateEvent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-8 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => navigate('/admin')}
-            className="flex items-center gap-2 text-purple-200 hover:text-white mb-4 transition"
+            className="flex items-center gap-2 text-orange-200 hover:text-white mb-4 transition"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </button>
           <h1 className="text-3xl font-bold">Create New Event</h1>
-          <p className="text-purple-200 mt-1">Fill in the details to create a new event</p>
+          <p className="text-orange-200 mt-1">Fill in the details to create a new event</p>
         </div>
       </div>
 
@@ -87,8 +87,8 @@ const CreateEvent = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Basic Info */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">Basic Information</h2>
+          <div className="theme-card rounded-2xl shadow-sm p-6">
+            <h2 className="text-lg font-bold text-white mb-4">Basic Information</h2>
             <div className="space-y-4">
 
               {/* Title */}
@@ -103,7 +103,7 @@ const CreateEvent = () => {
                   onChange={handleChange}
                   placeholder="Enter event title"
                   className={`w-full px-4 py-3 border rounded-xl outline-none transition
-                    ${errors.title ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                    ${errors.title ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                 />
                 {errors.title && <p className="text-red-500 text-xs mt-1">{errors.title}</p>}
               </div>
@@ -120,7 +120,7 @@ const CreateEvent = () => {
                   placeholder="Describe your event..."
                   rows={4}
                   className={`w-full px-4 py-3 border rounded-xl outline-none transition resize-none
-                    ${errors.description ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                    ${errors.description ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                 />
                 {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description}</p>}
               </div>
@@ -135,7 +135,7 @@ const CreateEvent = () => {
                   value={formData.category}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 border rounded-xl outline-none transition
-                    ${errors.category ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                    ${errors.category ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                 >
                   <option value="">Select Category</option>
                   {categories.map((cat) => (
@@ -149,8 +149,8 @@ const CreateEvent = () => {
           </div>
 
           {/* Date & Time */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">
+          <div className="theme-card rounded-2xl shadow-sm p-6">
+            <h2 className="text-lg font-bold text-white mb-4">
               Date & Time
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -168,7 +168,7 @@ const CreateEvent = () => {
                     value={formData.date}
                     onChange={handleChange}
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                      ${errors.date ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                      ${errors.date ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                   />
                 </div>
                 {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
@@ -184,7 +184,7 @@ const CreateEvent = () => {
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-purple-400 transition"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-orange-400 transition"
                 />
               </div>
 
@@ -192,8 +192,8 @@ const CreateEvent = () => {
           </div>
 
           {/* Location */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">Location</h2>
+          <div className="theme-card rounded-2xl shadow-sm p-6">
+            <h2 className="text-lg font-bold text-white mb-4">Location</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               {/* Venue */}
@@ -210,7 +210,7 @@ const CreateEvent = () => {
                     onChange={handleChange}
                     placeholder="Venue name"
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                      ${errors.venue ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                      ${errors.venue ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                   />
                 </div>
                 {errors.venue && <p className="text-red-500 text-xs mt-1">{errors.venue}</p>}
@@ -230,7 +230,7 @@ const CreateEvent = () => {
                     onChange={handleChange}
                     placeholder="City name"
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                      ${errors.city ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                      ${errors.city ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                   />
                 </div>
                 {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
@@ -240,8 +240,8 @@ const CreateEvent = () => {
           </div>
 
           {/* Tickets & Price */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">
+          <div className="theme-card rounded-2xl shadow-sm p-6">
+            <h2 className="text-lg font-bold text-white mb-4">
               Tickets & Price
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -261,7 +261,7 @@ const CreateEvent = () => {
                     placeholder="0.00"
                     min="0"
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                      ${errors.price ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                      ${errors.price ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                   />
                 </div>
                 {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price}</p>}
@@ -282,7 +282,7 @@ const CreateEvent = () => {
                     placeholder="100"
                     min="1"
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                      ${errors.totalSeats ? 'border-red-400' : 'border-gray-200 focus:border-purple-400'}`}
+                      ${errors.totalSeats ? 'border-red-400' : 'border-gray-200 focus:border-orange-400'}`}
                   />
                 </div>
                 {errors.totalSeats && <p className="text-red-500 text-xs mt-1">{errors.totalSeats}</p>}
@@ -292,8 +292,8 @@ const CreateEvent = () => {
           </div>
 
           {/* Image */}
-          <div className="bg-white rounded-2xl shadow-sm p-6">
-            <h2 className="text-lg font-bold text-gray-800 mb-4">Event Image</h2>
+          <div className="theme-card rounded-2xl shadow-sm p-6">
+            <h2 className="text-lg font-bold text-white mb-4">Event Image</h2>
             <div>
               <label className="text-gray-600 text-sm font-semibold mb-1 block">
                 Image URL
@@ -306,7 +306,7 @@ const CreateEvent = () => {
                   value={formData.image}
                   onChange={handleChange}
                   placeholder="https://example.com/image.jpg"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-purple-400 transition"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-orange-400 transition"
                 />
               </div>
               {/* Image Preview */}

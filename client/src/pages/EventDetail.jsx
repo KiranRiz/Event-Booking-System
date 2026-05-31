@@ -57,13 +57,13 @@ const EventDetail = () => {
   if (!event) return null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 pt-6">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold mb-6"
+          className="flex items-center gap-2 text-accent hover:text-accent-strong font-semibold mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Events
@@ -86,26 +86,26 @@ const EventDetail = () => {
             </div>
 
             {/* Event Title & Category */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 mb-6">
-              <span className="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full font-semibold">
+            <div className="theme-card rounded-2xl shadow-sm p-6 mb-6">
+              <span className="bg-surface-soft text-accent text-sm px-3 py-1 rounded-full font-semibold">
                 {event.category}
               </span>
-              <h1 className="text-3xl font-bold text-gray-800 mt-3 mb-4">
+              <h1 className="text-3xl font-bold text-white mt-3 mb-4">
                 {event.title}
               </h1>
-              <p className="text-gray-500 leading-relaxed">
+              <p className="text-theme-text-muted leading-relaxed">
                 {event.description}
               </p>
             </div>
 
             {/* Event Details */}
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Event Details</h2>
+            <div className="theme-card rounded-2xl shadow-sm p-6">
+              <h2 className="text-xl font-bold text-white mb-4">Event Details</h2>
               <div className="space-y-4">
 
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Calendar className="w-5 h-5 text-purple-600" />
+                  <div className="bg-surface-soft p-2 rounded-full">
+                    <Calendar className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Date</p>
@@ -121,8 +121,8 @@ const EventDetail = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Clock className="w-5 h-5 text-purple-600" />
+                  <div className="bg-surface-soft p-2 rounded-full">
+                    <Clock className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Time</p>
@@ -131,8 +131,8 @@ const EventDetail = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <MapPin className="w-5 h-5 text-purple-600" />
+                  <div className="bg-surface-soft p-2 rounded-full">
+                    <MapPin className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Venue</p>
@@ -141,8 +141,8 @@ const EventDetail = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Users className="w-5 h-5 text-purple-600" />
+                  <div className="bg-surface-soft p-2 rounded-full">
+                    <Users className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Available Seats</p>
@@ -151,8 +151,8 @@ const EventDetail = () => {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Tag className="w-5 h-5 text-purple-600" />
+                  <div className="bg-surface-soft p-2 rounded-full">
+                    <Tag className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400">Price per Ticket</p>
@@ -166,14 +166,14 @@ const EventDetail = () => {
 
           {/* Right Side — Booking Card */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
-              <h2 className="text-xl font-bold text-gray-800 mb-2">Book Tickets</h2>
-              <p className="text-gray-400 text-sm mb-6">Select number of tickets</p>
+            <div className="theme-card rounded-2xl shadow-lg p-6 sticky top-6">
+              <h2 className="text-xl font-bold text-white mb-2">Book Tickets</h2>
+              <p className="text-theme-text-muted text-sm mb-6">Select number of tickets</p>
 
               {/* Price */}
-              <div className="bg-purple-50 rounded-xl p-4 mb-6">
-                <p className="text-gray-500 text-sm">Price per ticket</p>
-                <p className="text-3xl font-bold text-purple-600">${event.price}</p>
+              <div className="theme-card-soft rounded-xl p-4 mb-6">
+                <p className="text-theme-text-muted text-sm">Price per ticket</p>
+                <p className="text-3xl font-bold text-accent">${event.price}</p>
               </div>
 
               {/* Ticket Selector */}
@@ -184,7 +184,7 @@ const EventDetail = () => {
                 <div className="flex items-center gap-4">
                   <button
                     onClick={() => setTickets(prev => Math.max(1, prev - 1))}
-                    className="w-10 h-10 bg-purple-100 text-purple-600 rounded-full font-bold text-xl hover:bg-purple-200 transition"
+                    className="w-10 h-10 bg-surface-soft text-accent rounded-full font-bold text-xl hover:bg-surface transition"
                   >
                     -
                   </button>
@@ -193,7 +193,7 @@ const EventDetail = () => {
                   </span>
                   <button
                     onClick={() => setTickets(prev => Math.min(event.availableSeats, prev + 1))}
-                    className="w-10 h-10 bg-purple-100 text-purple-600 rounded-full font-bold text-xl hover:bg-purple-200 transition"
+                    className="w-10 h-10 bg-surface-soft text-accent rounded-full font-bold text-xl hover:bg-surface transition"
                   >
                     +
                   </button>
@@ -204,7 +204,7 @@ const EventDetail = () => {
               <div className="border-t border-gray-100 pt-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600">Total Amount</span>
-                  <span className="text-2xl font-bold text-purple-600">
+                  <span className="text-2xl font-bold text-accent">
                     ${(event.price * tickets).toFixed(2)}
                   </span>
                 </div>

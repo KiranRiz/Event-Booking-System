@@ -62,18 +62,18 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 flex items-center justify-center px-4 py-12">
-      <div className="bg-white rounded-3xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="theme-card rounded-3xl shadow-xl w-full max-w-md p-8">
 
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-3">
-            <div className="bg-purple-600 p-3 rounded-2xl">
+            <div className="theme-accent p-3 rounded-2xl">
               <Calendar className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Welcome Back!</h1>
-          <p className="text-gray-400 mt-2">Login to your EventHub account</p>
+          <h1 className="text-3xl font-bold text-white">Welcome Back!</h1>
+          <p className="text-theme-text-muted mt-2">Login to your EventHub account</p>
         </div>
 
         {/* Form */}
@@ -92,11 +92,11 @@ const Login = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
-                  ${errors.email
+                className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition ${
+                  errors.email
                     ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                    : 'border-gray-200 focus:border-orange-400'
+                }`}
               />
             </div>
             {errors.email && (
@@ -117,11 +117,11 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition
-                  ${errors.password
+                className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition ${
+                  errors.password
                     ? 'border-red-400 focus:border-red-400'
-                    : 'border-gray-200 focus:border-purple-400'
-                  }`}
+                    : 'border-gray-200 focus:border-orange-400'
+                }`}
               />
               <button
                 type="button"
@@ -149,9 +149,9 @@ const Login = () => {
         </form>
 
         {/* Register Link */}
-        <p className="text-center text-gray-500 mt-6">
+        <p className="text-center text-theme-text-muted mt-6">
           Don't have an account?{' '}
-          <Link to="/register" className="text-purple-600 font-semibold hover:text-purple-700">
+          <Link to="/register" className="text-accent font-semibold hover:text-accent-strong">
             Register here
           </Link>
         </p>

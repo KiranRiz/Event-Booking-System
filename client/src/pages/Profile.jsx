@@ -118,18 +118,18 @@ const Profile = () => {
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-12 px-4">
+      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-12 px-4">
         <div className="max-w-4xl mx-auto flex items-center gap-6">
-          <div className="bg-white bg-opacity-20 rounded-full p-4">
+          <div className="bg-surface p-4 rounded-full">
             <User className="w-12 h-12 text-white" />
           </div>
           <div>
             <h1 className="text-3xl font-bold">{user?.name}</h1>
-            <p className="text-purple-200">{user?.email}</p>
-            <span className="bg-purple-500 text-white text-xs px-3 py-1 rounded-full mt-2 inline-block capitalize">
+            <p className="text-orange-200">{user?.email}</p>
+            <span className="theme-accent text-xs px-3 py-1 rounded-full mt-2 inline-block capitalize">
               {user?.role}
             </span>
           </div>
@@ -144,7 +144,7 @@ const Profile = () => {
             onClick={() => setActiveTab('profile')}
             className={`pb-3 px-2 font-semibold text-sm transition ${
               activeTab === 'profile'
-                ? 'border-b-2 border-purple-600 text-purple-600'
+                ? 'border-b-2 border-orange-600 text-accent'
                 : 'text-gray-400 hover:text-gray-600'
             }`}
           >
@@ -154,7 +154,7 @@ const Profile = () => {
             onClick={() => setActiveTab('password')}
             className={`pb-3 px-2 font-semibold text-sm transition ${
               activeTab === 'password'
-                ? 'border-b-2 border-purple-600 text-purple-600'
+                ? 'border-b-2 border-orange-600 text-accent'
                 : 'text-gray-400 hover:text-gray-600'
             }`}
           >
@@ -164,8 +164,8 @@ const Profile = () => {
 
         {/* Profile Tab */}
         {activeTab === 'profile' && (
-          <div className="bg-white rounded-2xl shadow-sm p-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-6">
+          <div className="theme-card rounded-2xl shadow-sm p-8">
+            <h2 className="text-xl font-bold text-white mb-6">
               Personal Information
             </h2>
             <form onSubmit={handleProfileSubmit} className="space-y-5">
@@ -185,7 +185,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
                       ${errors.name
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                 </div>
@@ -209,7 +209,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
                       ${errors.email
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                 </div>
@@ -233,7 +233,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
                       ${errors.phone
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                 </div>
@@ -257,8 +257,8 @@ const Profile = () => {
 
         {/* Password Tab */}
         {activeTab === 'password' && (
-          <div className="bg-white rounded-2xl shadow-sm p-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-6">
+          <div className="theme-card rounded-2xl shadow-sm p-8">
+            <h2 className="text-xl font-bold text-white mb-6">
               Change Password
             </h2>
             <form onSubmit={handlePasswordSubmit} className="space-y-5">
@@ -279,7 +279,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-12 py-3 border rounded-xl outline-none transition
                       ${errors.currentPassword
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                   <button
@@ -311,7 +311,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
                       ${errors.newPassword
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                 </div>
@@ -336,7 +336,7 @@ const Profile = () => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl outline-none transition
                       ${errors.confirmPassword
                         ? 'border-red-400'
-                        : 'border-gray-200 focus:border-purple-400'
+                        : 'border-gray-200 focus:border-orange-400'
                       }`}
                   />
                 </div>
