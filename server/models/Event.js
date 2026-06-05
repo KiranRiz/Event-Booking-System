@@ -62,6 +62,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     enum: ['active', 'cancelled', 'completed'],
     default: 'active'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 }, {
   timestamps: true

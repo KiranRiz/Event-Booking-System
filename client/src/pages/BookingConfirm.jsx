@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
-import { CheckCircle, Calendar, MapPin, Ticket } from 'lucide-react';
+import { CheckCircle, Calendar, Home, MapPin, Ticket } from 'lucide-react';
 import Button from '../components/ui/Button';
 
 const BookingConfirm = () => {
@@ -35,10 +35,10 @@ const BookingConfirm = () => {
               <CheckCircle className="w-16 h-16 text-green-500" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-white mb-2">
             Booking Confirmed!
           </h1>
-          <p className="text-gray-400">
+          <p className="text-theme-text-muted">
             Your tickets have been booked successfully
           </p>
         </div>
@@ -52,8 +52,8 @@ const BookingConfirm = () => {
         </div>
 
         {/* Booking Details */}
-        <div className="bg-gray-50 rounded-2xl p-6 mb-6 space-y-4">
-          <h2 className="text-lg font-bold text-gray-800 mb-4">
+        <div className="theme-card-soft rounded-2xl p-6 mb-6 space-y-4">
+          <h2 className="text-lg font-bold text-white mb-4">
             Booking Details
           </h2>
 
@@ -63,8 +63,8 @@ const BookingConfirm = () => {
               <Calendar className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <p className="text-xs text-gray-400">Event</p>
-              <p className="text-gray-700 font-semibold">
+              <p className="text-xs text-theme-text-muted">Event</p>
+              <p className="text-white font-semibold">
                 {booking.event?.title}
               </p>
             </div>
@@ -76,8 +76,8 @@ const BookingConfirm = () => {
               <Calendar className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <p className="text-xs text-gray-400">Date</p>
-              <p className="text-gray-700 font-semibold">
+              <p className="text-xs text-theme-text-muted">Date</p>
+              <p className="text-white font-semibold">
                 {new Date(booking.event?.date).toLocaleDateString('en-US', {
                   weekday: 'long',
                   year: 'numeric',
@@ -94,8 +94,8 @@ const BookingConfirm = () => {
               <MapPin className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <p className="text-xs text-gray-400">Venue</p>
-              <p className="text-gray-700 font-semibold">
+              <p className="text-xs text-theme-text-muted">Venue</p>
+              <p className="text-white font-semibold">
                 {booking.event?.venue}, {booking.event?.city}
               </p>
             </div>
@@ -107,17 +107,17 @@ const BookingConfirm = () => {
               <Ticket className="w-4 h-4 text-accent" />
             </div>
             <div>
-              <p className="text-xs text-gray-400">Tickets</p>
-              <p className="text-gray-700 font-semibold">
+              <p className="text-xs text-theme-text-muted">Tickets</p>
+              <p className="text-white font-semibold">
                 {booking.numberOfTickets} ticket(s)
               </p>
             </div>
           </div>
 
           {/* Total Price */}
-          <div className="border-t border-gray-200 pt-4 mt-4">
+          <div className="border-t border-[#2f2f2f] pt-4 mt-4">
             <div className="flex justify-between items-center">
-              <span className="text-gray-600 font-semibold">Total Paid</span>
+              <span className="text-white font-semibold">Total Paid</span>
               <span className="text-2xl font-bold text-accent">
                 ${booking.totalPrice}
               </span>

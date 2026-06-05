@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, Users, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, MapPin, Tag, Users, ArrowLeft } from 'lucide-react';
 import { getEventById, createBooking } from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import Loader from '../components/ui/Loader';

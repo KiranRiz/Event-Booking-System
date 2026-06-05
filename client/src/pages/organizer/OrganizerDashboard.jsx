@@ -44,18 +44,18 @@ const OrganizerDashboard = () => {
   if (loading) return <Loader fullScreen />;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-8 px-4">
+      <div className="py-8 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">Organizer Dashboard</h1>
-            <p className="text-orange-200 mt-1">Manage your events</p>
+            <h1 className="text-3xl font-bold text-white">Organizer Dashboard</h1>
+            <p className="text-theme-text-muted mt-1">Manage your events</p>
           </div>
           <Link
             to="/organizer/create-event"
-            className="flex items-center gap-2 bg-orange-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-orange-600 transition"
+            className="flex items-center gap-2 bg-accent text-black px-4 py-2 rounded-full font-semibold hover:bg-accent-strong transition"
           >
             <Plus className="w-4 h-4" />
             New Event
@@ -72,7 +72,7 @@ const OrganizerDashboard = () => {
               <Calendar className="w-8 h-8 text-accent" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">My Events</p>
+              <p className="text-theme-text-muted text-sm">My Events</p>
               <p className="text-2xl font-bold text-white">{stats.totalEvents}</p>
             </div>
           </div>
@@ -81,16 +81,16 @@ const OrganizerDashboard = () => {
               <Ticket className="w-8 h-8 text-accent" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Total Bookings</p>
+              <p className="text-theme-text-muted text-sm">Total Bookings</p>
               <p className="text-2xl font-bold text-white">{stats.totalBookings}</p>
             </div>
           </div>
           <div className="theme-card rounded-2xl shadow-sm p-6 flex items-center gap-4">
-            <div className="bg-green-100 p-3 rounded-full">
-              <DollarSign className="w-8 h-8 text-green-600" />
+            <div className="bg-surface-soft p-3 rounded-full">
+              <DollarSign className="w-8 h-8 text-accent" />
             </div>
             <div>
-              <p className="text-gray-400 text-sm">Total Revenue</p>
+              <p className="text-theme-text-muted text-sm">Total Revenue</p>
               <p className="text-2xl font-bold text-white">${stats.totalRevenue}</p>
             </div>
           </div>
@@ -111,7 +111,7 @@ const OrganizerDashboard = () => {
           {myEvents.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-6xl mb-4">🎭</p>
-              <p className="text-gray-400 text-lg mb-4">No events created yet</p>
+              <p className="text-theme-text-muted text-lg mb-4">No events created yet</p>
               <Link to="/organizer/create-event">
                 <button className="bg-orange-500 text-black px-6 py-2 rounded-full hover:bg-orange-600 transition">
                   Create Your First Event
@@ -121,7 +121,7 @@ const OrganizerDashboard = () => {
           ) : (
             <div className="space-y-4">
               {myEvents.slice(0, 5).map((event) => (
-                <div key={event._id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                <div key={event._id} className="flex items-center justify-between p-4 theme-card-soft rounded-xl">
                   <div className="flex items-center gap-3">
                     <img
                       src={event.image || 'https://via.placeholder.com/50?text=E'}
@@ -129,26 +129,26 @@ const OrganizerDashboard = () => {
                       className="w-14 h-14 rounded-xl object-cover"
                     />
                     <div>
-                      <p className="font-semibold text-gray-800">{event.title}</p>
-                      <p className="text-gray-400 text-xs">
+                      <p className="font-semibold text-white">{event.title}</p>
+                      <p className="text-theme-text-muted text-xs">
                         {event.category} • ${event.price} • {event.availableSeats} seats left
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Link to={`/events/${event._id}`}>
-                      <button className="p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition">
+                      <button className="p-2 text-blue-400 hover:bg-surface rounded-lg transition">
                         <Eye className="w-4 h-4" />
                       </button>
                     </Link>
                     <Link to={`/organizer/edit-event/${event._id}`}>
-                      <button className="p-2 text-green-500 hover:bg-green-50 rounded-lg transition">
+                      <button className="p-2 text-green-400 hover:bg-surface rounded-lg transition">
                         <Edit className="w-4 h-4" />
                       </button>
                     </Link>
                     <button
                       onClick={() => handleDelete(event._id)}
-                      className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition"
+                      className="p-2 text-red-400 hover:bg-surface rounded-lg transition"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
