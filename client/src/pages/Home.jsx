@@ -31,28 +31,30 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white min-h-screen flex items-center py-24 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+        <div className="max-w-4xl mx-auto text-center w-full">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Discover & Book
             <span className="text-orange-400"> Amazing Events</span>
           </h1>
-          <p className="text-xl text-orange-200 mb-10">
+          <p className="text-base md:text-xl text-orange-200 mb-10">
             Find the best concerts, sports, conferences and more near you
           </p>
 
           {/* Search Bar */}
-          <div className="flex items-center bg-slate-950 rounded-full shadow-2xl shadow-orange-500/10 overflow-hidden max-w-2xl mx-auto">
-            <Search className="w-5 h-5 text-orange-400 ml-4" />
-            <input
-              type="text"
-              placeholder="Search events..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 px-4 py-4 text-white bg-transparent outline-none text-lg"
-            />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center bg-slate-950 rounded-2xl sm:rounded-full shadow-2xl shadow-orange-500/10 overflow-hidden max-w-2xl mx-auto">
+            <div className="flex items-center flex-1">
+              <Search className="w-5 h-5 text-orange-400 ml-4 flex-shrink-0" />
+              <input
+                type="text"
+                placeholder="Search events..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="flex-1 px-4 py-4 text-white bg-transparent outline-none text-base sm:text-lg"
+              />
+            </div>
             <Link
               to={`/events?search=${search}`}
-              className="bg-orange-500 text-black px-8 py-4 font-semibold hover:bg-orange-600 transition"
+              className="bg-orange-500 text-black px-8 py-4 font-semibold hover:bg-orange-600 transition text-center"
             >
               Search
             </Link>
@@ -62,43 +64,43 @@ const Home = () => {
 
       {/* Features Section */}
       <section className="bg-slate-950 py-16 px-4 border-t border-orange-500/10">
-        <div className="max-w-5xl mx-auto space-y-10">
-          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="theme-card rounded-3xl p-6 md:p-10 border border-orange-500/10 shadow-lg bg-slate-900">
             <div className="flex items-center gap-4 mb-3">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black flex-shrink-0">
                 <Calendar className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Easy Booking</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white">Easy Booking</h3>
             </div>
             <p className="text-theme-text-muted">Find and book tickets in seconds with a clean and fast experience.</p>
           </div>
 
-          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+          <div className="theme-card rounded-3xl p-6 md:p-10 border border-orange-500/10 shadow-lg bg-slate-900">
             <div className="flex items-center gap-4 mb-3">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black flex-shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Top Venues</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white">Top Venues</h3>
             </div>
             <p className="text-theme-text-muted">Discover events from the best venues across your city and beyond.</p>
           </div>
 
-          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+          <div className="theme-card rounded-3xl p-6 md:p-10 border border-orange-500/10 shadow-lg bg-slate-900">
             <div className="flex items-center gap-4 mb-3">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black flex-shrink-0">
                 <Users className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Community Trusted</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white">Community Trusted</h3>
             </div>
             <p className="text-theme-text-muted">Book with confidence thanks to reviews, ratings, and trusted organizers.</p>
           </div>
 
-          <div className="theme-card rounded-3xl p-10 border border-orange-500/10 shadow-lg bg-slate-900">
+          <div className="theme-card rounded-3xl p-6 md:p-10 border border-orange-500/10 shadow-lg bg-slate-900">
             <div className="flex items-center gap-4 mb-3">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-500 text-black flex-shrink-0">
                 <Star className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl font-bold text-white">Premium Support</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white">Premium Support</h3>
             </div>
             <p className="text-theme-text-muted">Get help when you need it with 24/7 support and easy order management.</p>
           </div>
@@ -109,7 +111,7 @@ const Home = () => {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-10">
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
               Featured Events
             </h2>
             <Link
@@ -139,15 +141,15 @@ const Home = () => {
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-brand-900 to-brand-800 text-white py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Ready to Book Your Next Event?
           </h2>
-          <p className="text-orange-200 mb-8 text-lg">
+          <p className="text-orange-200 mb-8 text-base md:text-lg">
             Join thousands of happy users who book events with EventHub
           </p>
           <Link
             to="/register"
-            className="bg-orange-500 text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition duration-300"
+            className="inline-block bg-orange-500 text-black px-7 py-3 sm:px-10 sm:py-4 rounded-full font-bold text-base md:text-lg hover:bg-orange-600 transition duration-300"
           >
             Get Started Free
           </Link>

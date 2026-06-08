@@ -87,29 +87,29 @@ const AdminDashboard = () => {
       <div className="bg-gray-900 border-b border-orange-500/30 text-white py-6 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="mb-4">
-            <h1 className="text-3xl font-bold text-white">Admin Dashboard</h1>
-            <p className="text-gray-400 mt-1">Manage your events and bookings</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Admin Dashboard</h1>
+            <p className="text-gray-400 mt-1 text-sm md:text-base">Manage your events and bookings</p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link to="/admin" className="flex items-center gap-2 bg-orange-500 text-black px-4 py-2 rounded-full font-semibold hover:bg-orange-400 transition text-sm">
-              <LayoutDashboard className="w-4 h-4" />
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            <Link to="/admin" className="flex items-center gap-1.5 bg-orange-500 text-black px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-orange-400 transition text-xs sm:text-sm">
+              <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Dashboard
             </Link>
-            <Link to="/admin/create-event" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
-              <Plus className="w-4 h-4" />
+            <Link to="/admin/create-event" className="flex items-center gap-1.5 bg-gray-800 text-orange-500 border border-orange-500 px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-xs sm:text-sm">
+              <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               Create Event
             </Link>
-            <Link to="/admin/manage-events" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
-              <Calendar className="w-4 h-4" />
-              Manage Events
+            <Link to="/admin/manage-events" className="flex items-center gap-1.5 bg-gray-800 text-orange-500 border border-orange-500 px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-xs sm:text-sm">
+              <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              Events
             </Link>
-            <Link to="/admin/manage-bookings" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
-              <Ticket className="w-4 h-4" />
-              Manage Bookings
+            <Link to="/admin/manage-bookings" className="flex items-center gap-1.5 bg-gray-800 text-orange-500 border border-orange-500 px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-xs sm:text-sm">
+              <Ticket className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              Bookings
             </Link>
-            <Link to="/admin/manage-users" className="flex items-center gap-2 bg-gray-800 text-orange-500 border border-orange-500 px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-sm">
-              <Users className="w-4 h-4" />
-              Manage Users
+            <Link to="/admin/manage-users" className="flex items-center gap-1.5 bg-gray-800 text-orange-500 border border-orange-500 px-3 sm:px-4 py-2 rounded-full font-semibold hover:bg-gray-700 transition text-xs sm:text-sm">
+              <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              Users
             </Link>
           </div>
         </div>

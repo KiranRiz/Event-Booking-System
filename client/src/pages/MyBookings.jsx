@@ -74,8 +74,8 @@ const MyBookings = () => {
       {/* Header */}
       <div className="bg-gray-900 border-b border-orange-500/30 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-2">My Bookings</h1>
-          <p className="text-orange-200">Manage all your event bookings</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">My Bookings</h1>
+          <p className="text-orange-200 text-sm md:text-base">Manage all your event bookings</p>
         </div>
       </div>
 
@@ -192,7 +192,7 @@ const MyBookings = () => {
                         </div>
 
                         {/* Right Info */}
-                        <div className="flex flex-col items-end gap-4">
+                        <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-start gap-3 md:gap-4">
                           <div className="text-right">
                             <p className="text-gray-400 text-sm">Total Paid</p>
                             <p className="text-2xl font-bold text-accent">

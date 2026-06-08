@@ -48,14 +48,14 @@ const OrganizerDashboard = () => {
 
       {/* Header */}
       <div className="py-8 px-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-white">Organizer Dashboard</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Organizer Dashboard</h1>
             <p className="text-theme-text-muted mt-1">Manage your events</p>
           </div>
           <Link
             to="/organizer/create-event"
-            className="flex items-center gap-2 bg-accent text-black px-4 py-2 rounded-full font-semibold hover:bg-accent-strong transition"
+            className="flex items-center gap-2 bg-accent text-black px-4 py-2 rounded-full font-semibold hover:bg-accent-strong transition self-start sm:self-auto"
           >
             <Plus className="w-4 h-4" />
             New Event
@@ -121,21 +121,21 @@ const OrganizerDashboard = () => {
           ) : (
             <div className="space-y-4">
               {myEvents.slice(0, 5).map((event) => (
-                <div key={event._id} className="flex items-center justify-between p-4 theme-card-soft rounded-xl">
-                  <div className="flex items-center gap-3">
+                <div key={event._id} className="flex items-center justify-between p-4 theme-card-soft rounded-xl gap-3">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     <img
                       src={event.image || 'https://via.placeholder.com/50?text=E'}
                       alt={event.title}
-                      className="w-14 h-14 rounded-xl object-cover"
+                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover flex-shrink-0"
                     />
-                    <div>
-                      <p className="font-semibold text-white">{event.title}</p>
-                      <p className="text-theme-text-muted text-xs">
+                    <div className="min-w-0">
+                      <p className="font-semibold text-white truncate">{event.title}</p>
+                      <p className="text-theme-text-muted text-xs truncate">
                         {event.category} • ${event.price} • {event.availableSeats} seats left
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                     <Link to={`/events/${event._id}`}>
                       <button className="p-2 text-blue-400 hover:bg-surface rounded-lg transition">
                         <Eye className="w-4 h-4" />

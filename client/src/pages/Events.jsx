@@ -67,22 +67,24 @@ const Events = () => {
       {/* Header */}
       <div className="bg-gray-900 border-b border-orange-500/30 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4">All Events</h1>
-          <p className="text-orange-200">Discover amazing events near you</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">All Events</h1>
+          <p className="text-orange-200 text-sm md:text-base">Discover amazing events near you</p>
 
           {/* Search Bar */}
-          <div className="flex items-center bg-slate-950 rounded-full shadow-2xl shadow-orange-500/10 overflow-hidden mt-6 max-w-2xl">
-            <Search className="w-5 h-5 text-orange-400 ml-4" />
-            <input
-              type="text"
-              placeholder="Search events..."
-              value={filters.search}
-              onChange={(e) => handleFilterChange('search', e.target.value)}
-              className="flex-1 px-4 py-4 text-white bg-transparent outline-none text-lg"
-            />
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center bg-slate-950 rounded-2xl sm:rounded-full shadow-2xl shadow-orange-500/10 overflow-hidden mt-6 max-w-2xl">
+            <div className="flex items-center flex-1">
+              <Search className="w-5 h-5 text-orange-400 ml-4 flex-shrink-0" />
+              <input
+                type="text"
+                placeholder="Search events..."
+                value={filters.search}
+                onChange={(e) => handleFilterChange('search', e.target.value)}
+                className="flex-1 px-4 py-4 text-white bg-transparent outline-none text-base sm:text-lg"
+              />
+            </div>
             <button
               onClick={fetchEvents}
-              className="bg-orange-500 text-black px-8 py-4 font-semibold hover:bg-orange-600 transition"
+              className="bg-orange-500 text-black px-8 py-4 font-semibold hover:bg-orange-600 transition text-center"
             >
               Search
             </button>
@@ -94,75 +96,72 @@ const Events = () => {
 
         {/* Filters Row */}
         <div className="theme-card rounded-2xl shadow-sm p-4 mb-8">
-          <div className="flex flex-wrap gap-4 items-center">
+          <div className="flex flex-col gap-4">
 
-            {/* Filter Icon */}
-            <div className="flex items-center gap-2 text-gray-600 font-semibold">
-              <Filter className="w-4 h-4" />
-              Filters:
+            {/* Top row: Filter label + category pills */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 text-gray-600 font-semibold text-sm">
+                <Filter className="w-4 h-4" />
+                Filters:
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => handleFilterChange('category', cat === 'All' ? '' : cat)}
+                    className={`px-3 py-1 rounded-full text-sm font-semibold transition ${
+                      (cat === 'All' && !filters.category) || filters.category === cat
+                        ? 'bg-orange-500 text-black'
+                        : 'bg-gray-100 text-gray-600 hover:bg-surface-soft'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => handleFilterChange('category', cat === 'All' ? '' : cat)}
-                  className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
-                    (cat === 'All' && !filters.category) || filters.category === cat
-                      ? 'bg-orange-500 text-black'
-                      : 'bg-gray-100 text-gray-600 hover:bg-surface-soft'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            {/* Bottom row: City, Price, Sort, Clear */}
+            <div className="flex flex-wrap gap-3 items-center">
+              <input
+                type="text"
+                placeholder="City..."
+                value={filters.city}
+                onChange={(e) => handleFilterChange('city', e.target.value)}
+                className="border border-gray-200 rounded-full px-4 py-1.5 text-sm outline-none focus:border-orange-400 w-full sm:w-32"
+              />
+              <input
+                type="number"
+                placeholder="Min Price"
+                value={filters.minPrice}
+                onChange={(e) => handleFilterChange('minPrice', e.target.value)}
+                className="border border-gray-200 rounded-full px-4 py-1.5 text-sm outline-none focus:border-orange-400 w-full sm:w-28"
+              />
+              <input
+                type="number"
+                placeholder="Max Price"
+                value={filters.maxPrice}
+                onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
+                className="border border-gray-200 rounded-full px-4 py-1.5 text-sm outline-none focus:border-orange-400 w-full sm:w-28"
+              />
+              <select
+                value={filters.sort}
+                onChange={(e) => handleFilterChange('sort', e.target.value)}
+                className="border border-gray-200 rounded-full px-4 py-1.5 text-sm outline-none focus:border-orange-400 w-full sm:w-auto"
+              >
+                <option value="date">Sort by Date</option>
+                <option value="price">Sort by Price</option>
+                <option value="title">Sort by Name</option>
+              </select>
+              <button
+                onClick={clearFilters}
+                className="flex items-center gap-1 text-red-500 hover:text-red-600 text-sm font-semibold"
+              >
+                <X className="w-4 h-4" />
+                Clear
+              </button>
             </div>
 
-            {/* City Filter */}
-            <input
-              type="text"
-              placeholder="City..."
-              value={filters.city}
-              onChange={(e) => handleFilterChange('city', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400"
-            />
-
-            {/* Price Filter */}
-            <input
-              type="number"
-              placeholder="Min Price"
-              value={filters.minPrice}
-              onChange={(e) => handleFilterChange('minPrice', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400 w-28"
-            />
-            <input
-              type="number"
-              placeholder="Max Price"
-              value={filters.maxPrice}
-              onChange={(e) => handleFilterChange('maxPrice', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400 w-28"
-            />
-
-            {/* Sort */}
-            <select
-              value={filters.sort}
-              onChange={(e) => handleFilterChange('sort', e.target.value)}
-              className="border border-gray-200 rounded-full px-4 py-1 text-sm outline-none focus:border-orange-400"
-            >
-              <option value="date">Sort by Date</option>
-              <option value="price">Sort by Price</option>
-              <option value="title">Sort by Name</option>
-            </select>
-
-            {/* Clear Filters */}
-            <button
-              onClick={clearFilters}
-              className="flex items-center gap-1 text-red-500 hover:text-red-600 text-sm font-semibold"
-            >
-              <X className="w-4 h-4" />
-              Clear
-            </button>
           </div>
         </div>
 

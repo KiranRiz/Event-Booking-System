@@ -83,8 +83,8 @@ const CreateEvent = () => {
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </button>
-          <h1 className="text-3xl font-bold text-white">Create New Event</h1>
-          <p className="text-theme-text-muted mt-1">Fill in the details to create your event</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white">Create New Event</h1>
+          <p className="text-theme-text-muted mt-1 text-sm md:text-base">Fill in the details to create your event</p>
         </div>
       </div>
 

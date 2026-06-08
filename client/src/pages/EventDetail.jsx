@@ -80,7 +80,7 @@ const EventDetail = () => {
               <img
                 src={event.image || 'https://via.placeholder.com/800x400?text=Event'}
                 alt={event.title}
-                className="w-full h-80 object-cover"
+                className="w-full h-48 sm:h-64 md:h-80 object-cover"
               />
             </div>
 
@@ -89,7 +89,7 @@ const EventDetail = () => {
               <span className="bg-surface-soft text-accent text-sm px-3 py-1 rounded-full font-semibold">
                 {event.category}
               </span>
-              <h1 className="text-3xl font-bold text-white mt-3 mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-3 mb-4">
                 {event.title}
               </h1>
               <p className="text-theme-text-muted leading-relaxed">
